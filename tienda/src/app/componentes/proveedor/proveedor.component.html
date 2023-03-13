@@ -1,0 +1,63 @@
+
+<app-nav-admi></app-nav-admi>
+<body>
+  
+<section class="container mt-5 border rounded  shadow-lg p-3 mb-5 bg-white rounded"  >
+    <h2 class="text-center pt-3">Proveedor</h2>
+    <form [formGroup]="formulario" (ngSubmit)="crearProveedor(formulario.value)">
+        <div class="form-group row pt-3">
+          <label  class="col-sm-2 col-form-label ">Nombre</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control nombre " id="inputNombre" required formControlName="nombre_proveedor" placeholder="Nombre del proveedor">
+          </div>
+        </div>
+        <div class="form-group row pt-3">
+          <label  class="col-sm-2 col-form-label">Cedula</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCedula" required formControlName="cedula" placeholder="N°. Cedula">
+          </div>
+        </div>
+        <div class="form-group row pt-3">
+            <label  class="col-sm-2 col-form-label">Ubicación</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputUbicacion" required formControlName="ubicacion_p" placeholder="Ubicación del proveedor">
+            </div>
+          </div>
+        <div class="form-group row pt-3">
+            <label  class="col-sm-2 col-form-label ">Cuenta</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control cuenta" id="inputCuentaB" formControlName="cuenta_bancaria" placeholder="N°. Cuenta bancaria">
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-center p-4">
+                
+          <button type="submit" value="crearProducto()" class="btn text-light me-5" style="background: #177987;">Guardar proveedor</button>
+                           
+        </div>
+      </form>
+</section>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">cedula</th>
+      <th scope="col">nombre proveedor</th>
+      <th scope="col">Cuenta bancaria</th>
+      <th scope="col">ubicacion</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let proveedor of proveedor">
+      <th>{{proveedor.cedula}}</th>
+      <td>{{proveedor.nombre_proveedor}}</td>
+      <td>{{proveedor.cuenta_bancaria}}</td>
+      <td>{{proveedor.ubicacion_p}}</td>
+      <!--<td><i class="fas fa-pencil" (click)="proveedorEditar(proveedor.cedula)" style="color: rgb(0, 59, 59);"></i></td>-->
+      <td><app-modalfuormularioproveedor></app-modalfuormularioproveedor></td>
+      <td><i class="fa-solid fa-trash-can" (click)="proveedorEliminar(proveedor.cedula)"></i></td>
+    </tr>
+  </tbody>
+</table>
+</body>

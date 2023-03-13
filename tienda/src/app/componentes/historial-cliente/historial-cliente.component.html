@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">No-Factura</th>
+        <th scope="col">cliente</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of facturas" (click)="mostrarFactura(factura.no_venta)">
+        <th scope="row">{{factura.no_venta}}</th>
+        <td>{{factura.nombre}}</td>
+        <td>{{factura.total_venta}}</td>
+        <td>{{factura.fecha_venta}}</td>
+      </tr>
+    </tbody>
+  </table>

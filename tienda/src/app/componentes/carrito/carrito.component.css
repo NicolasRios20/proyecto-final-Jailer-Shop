@@ -1,0 +1,44 @@
+body {
+    position: relative;
+}
+
+.titulo {
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: auto;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: black;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.uno {
+    position: absolute;
+}
+
+.vaciar {
+    background-color: rgb(228, 41, 41);
+}
+
+.comprar {
+    margin-top: 40px;
+}
+
+.bot {
+    display: flex;
+    flex-direction: row;
+    margin-top: 130px;
+    justify-content: space-between;
+}
+
+.separar-columnas {
+    padding: 10px;
+}

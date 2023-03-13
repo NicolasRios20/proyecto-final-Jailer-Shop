@@ -1,0 +1,135 @@
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #3B0C04;">
+      <div class="container-fluid"> 
+        <a class="navbar-brand text-light" href="#">
+          <span class="navbar-text" id="contenedorPerfil">
+            <li class="nav-item dropdown" style="list-style: none;">
+              <img  class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="foto" src="{{imagen}}" alt="">
+            
+            <ul class="dropdown-menu">
+              <li><a  [routerLink]="['/perfil-usuario']" class="dropdown-item " aria-current="page" href="#">Perfil</a></li>
+              <li><a [routerLink]="['/registro']" class="dropdown-item" href="#">Registro</a></li>
+              <li><a class="dropdown-item" href="#" (click)="cerrarSesion()">Cerrar sesion</a></li>
+            </ul>
+            </li>
+          </span>
+        </a>
+        <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item ">
+                  <a class="nav-link active text-light" href="#">Inicio</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="#">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </a>
+              
+              <ul class="dropdown-menu" style="background-color: #3B0C04;">
+                <table>
+                  <tr *ngFor="let item of categoria" >
+                    <td>
+                      <a href="#" class="text-light " style="text-decoration: none;">{{item.nombre_categoria}}</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </ul>
+            </li>
+          </ul>
+          
+            <form class="form-inline my-2 my-lg-0">
+              <input type="search" class="search-query border-end-0 border rounded-pill" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-light border-end-1 border rounded-pill ms-2" type="submit"><i class=" fa fa-search"></i></button>
+            </form>
+          
+          <li class="nav-item" style="list-style: none;">
+            <a class="navbar-link">
+              <img class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29">
+            </a>
+          </li>
+          
+        </div>
+        
+      </div>
+    </nav>
+
+<!--<nav class="navbar navbar-expand-lg" style="background-color: #3B0C04;">
+  <div class="container-fluid"> 
+    <div class="collapse navbar-collapse mx-5" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ">
+              <a class="nav-link active text-light" href="#">Inicio</a>
+          </li>
+        <li *ngIf="!(login == '')" class="nav-item">
+          <a  [routerLink]="['/perfil-usuario']" class="nav-link active text-light" aria-current="page" href="#">Editar Perfil</a>
+        </li>
+        <li *ngIf="login == ''" class="nav-item">
+          <a [routerLink]="['/login']" class="nav-link active text-light" aria-current="page" href="#"> login </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </a>
+          
+          <ul class="dropdown-menu">
+            <table>
+              <tr *ngFor="let item of categoria" >
+                <td>
+                  <i href="#" (click)="idCategoria(item.id_categoria)"><label for="text">{{item.nombre_categoria}}</label></i>
+
+                </td>
+              </tr>
+            </table>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="buscar">
+        <input type="text" placeholder="Buscar" required />
+  
+        <div class="btn">
+          <i class="fas fa-search icon"></i>
+        </div>
+      </div>
+
+      <span class="navbar-text" id="contenedorPerfil">
+        <li class="nav-item dropdown" style="list-style: none;">
+            <img  class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="foto" src="{{imagen}}" alt="">
+          
+          <ul class="dropdown-menu">
+            <li><a  [routerLink]="['/perfil-usuario']" class="dropdown-item " aria-current="page" href="#">Perfil</a></li>
+            <li><a [routerLink]="['/registro']" class="dropdown-item" href="#">Registro</a></li>
+            <li><a class="dropdown-item" href="#" (click)="cerrarSesion()">Cerrar sesion</a></li>
+            
+          </ul>
+        </li>
+
+
+        <a class="navbar-brand" href="#">
+          <img class=" imgnav" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29">
+        </a>
+
+      </span>
+      
+    </div>
+  </div>
+</nav>-->
+
+

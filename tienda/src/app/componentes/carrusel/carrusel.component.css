@@ -1,0 +1,20 @@
+.carrusel {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.container {
+    height: 400px;
+}
+
+.bot {
+    width: 35%;
+}

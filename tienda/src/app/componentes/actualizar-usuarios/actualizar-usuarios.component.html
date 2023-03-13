@@ -1,0 +1,58 @@
+<app-nav [value] = "value"></app-nav >
+<section class="seccion-perfil-usuario">
+
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar">
+                <img class="img-responsive img-circle" src="{{this.user[0].foto}}" alt="img-avatar">
+            </div>
+            
+            <button class="boton-portada " type="submit" id="eliminar" (click)="eliminar()">Eliminar cuenta</button>
+
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+
+
+            <h1>{{user[0].nombre}}</h1>
+
+
+        </div>
+        <div class="perfil-usuario-footer" style="margin: 0 0 50px 0;">
+            <form [formGroup]="formulario" (ngSubmit)="actualizarUser(formulario.value)">
+
+                <div class="user_info p-4" style="display: flex; flex-direction: column; align-items: center; ">
+                    <label for="nombre" class="form-label" style="margin-right: 60%;">Nombre</label>
+                    <input type="text" id="nombres" formControlName="nombre" class="form-control " style="width: 70%;">
+
+                    <label for="correo" class="form-label pt-3" style="margin-right: 62%;">Correo</label>
+                    <input type="text" id="correo" formControlName="correo" class="form-control" style="width: 70%;">
+
+
+                    <label for="ciudad" class="form-label pt-3" style="margin-right: 62%;">Ciudad</label>
+                    <input type="text" id="ciudad" formControlName="ciudad" class="form-control" style="width: 70%;">
+
+
+                    <label for="direccion" class="form-label pt-3" style="margin-right: 60%;">Direccion</label>
+                    <input type="text" id="direccion" formControlName="direccion" class="form-control" style="width: 70%;">
+
+                    <label for="telefono" class="form-label pt-3 " style="margin-right: 51%;">Telefono / Celular</label>
+                    <input type="text" id="telefono" formControlName="telefono" class="form-control " style="width: 70%;">
+
+                    <label for="file" class="label1 mb-3 mt-3">
+                        <input id="file"  type="file" formControlName="file"(change)="imagenFile($event)"/>
+                        <span>Subir imagen</span>
+                    </label>
+
+
+
+                    <button type="submit" class="btn  btn-outline-light mt-3  " style="background: #177987; width: 30%; height: 35px;" id="btnSend" value="actualizarUser()">Guardar</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+<!--====  End of html  ====-->

@@ -1,0 +1,165 @@
+.main-container{
+  background: url(https://www.elbaudoseno.com/wp-content/uploads/2022/05/elbaudoseno_2022_05_artesanos_region_pacifico_.jpg);
+  /* Para dejar la imagen de fondo centrada, vertical y
+  horizontalmente */
+  background-position: center ;
+  /* Para que la imagen de fondo no se repita */
+  background-repeat: no-repeat;
+  /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+  /*background-attachment: fixed;*/
+  /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+  background-size: cover;
+  
+}
+
+
+
+.registro{
+    width: 60vh;
+    height: 78vh;
+    background: rgba(196, 196, 196, 0.63);
+    border-radius:9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+  /* form starting stylings ------------------------------- */
+  .group 			  { 
+    position:relative; 
+    margin-bottom:45px; 
+    
+  }
+  input 				{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #3B0C04;
+    background-color:transparent ;
+  }
+  input:focus { outline:none; }
+  
+  /* LABEL ======================================= */
+  label 				 {
+    color:black; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* active state */
+  input:focus ~ label, input:valid ~ label{
+    top:-20px;
+    font-size:14px;
+    color:#3B0C04;
+    
+  }
+  
+  /* BOTTOM BARS ================================= */
+  .bar { 
+    position:relative; 
+    display:block; 
+    width:300px; 
+  }
+
+  .bar:before, .bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background:#3B0C04; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%; 
+  }
+  
+  /* active state */
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+  }
+  
+  /* HIGHLIGHTER ================================== */
+  .highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+
+  /* active state */
+input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+}
+
+.btn-light{
+  background: #3B0C04;
+  color: white;
+}
+.campassword{
+
+  display: flex;
+  flex-direction: row;
+}
+
+.input-wrapper {
+	position: relative;
+	width: 271px;
+}
+
+.input-icon {
+	color: #191919;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 12px;
+	top: 50%;
+	transform: translateX(1300%);
+}
+.pass{
+  width: 15px;
+  height: 15px;
+}
+
+
+
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#3B0C04; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#3B0C04; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#3B0C04; }
+    to 	{ width:0; background:transparent; }
+  }
+
+  #viewPassword{
+    cursor:pointer;
+  }
+
+

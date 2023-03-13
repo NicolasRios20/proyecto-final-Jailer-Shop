@@ -1,0 +1,98 @@
+<app-nav-admi></app-nav-admi>
+<body>
+    <section>
+    <div class=" container w-70 mt-5 rounded ">
+        <div class=" row  align-items-stretch">
+
+            
+
+            <div class="colorForm m-1 col p-2  "style="">
+
+                <div class="container w-100 my-5">
+
+                    <div class="row">
+                        <div class="container">
+                            <div class="abs-center">
+                    
+                                <form  [formGroup]="formulario" (ngSubmit)="crearProducto(formulario.value)">
+                    
+                                    <h2 class=" text-center" style="font-family: JuliusSansOne">Subir Producto</h2>
+
+                                    <div class="group form-group">
+                                        <input type="text" maxlength="20" id="InputNombre" required  formControlName="nombre_producto">
+                                        <span class=" highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Nombre</label>
+                                        
+                                    </div>
+                    
+                                    <div class="group">
+                                        <input type="text" id="InputPrecio" required formControlName="precio_producto">
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Precio</label>
+                                    </div>
+
+                                    <div class="group">
+                                        <input type="number" id="InputPrecio" required formControlName="cantidad">
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>cantidad</label>
+                                    </div>
+                                    <div class="m-1">
+                                        <select id="lang" formControlName="id_categoria" (change)="idCatecoria($event)">
+                                            <option *ngFor="let item of categoria ">{{item.nombre_categoria}}</option>
+                                        </select>
+                                    </div>
+                                    <!--
+                                    <div class="group">
+                                        <input type="number" id="InputPrecio" required formControlName="id_categoria">
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>categoria</label>
+                                    </div>
+                                    -->
+                                    <div class="mb-3">
+                                        <textarea class="form-control" maxlength="200" placeholder="Descripcion del producto..." style=" background-color: rgba(240, 248, 255, 0.525);" rows="3" formControlName="descripcion"></textarea>
+                                    </div>
+                                    <!---------------------------------------------->
+
+                                    <div class="form-group">
+                                        <input 
+                                            formControlName="file"
+                                            id="file" 
+                                            type="file" 
+                                            class="form-control"
+                                            (change)="onFileChange($event)">
+                                    </div>
+                    
+                                    <button type="submit" class="btn text-light m-4 " style="margin-left: 35%; background-color: rgba(59,12,4);"  value="crearProducto()">Subir Productos</button>
+                                    <button type="submit" class="btn text-light m-4" style="margin-left: 35%; background-color: rgba(59,12,4);"  (click)="limpiarCampos()">Nuevo</button>
+                                </form>
+                               
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="colorImage  m-1 col ">
+    
+                <div class="prueba">
+                    <div class="image-preview" id="imagePreview">
+                        <img src="" alt="Image Preview" class="image-preview--image">
+                        <app-img *ngIf="producCreat.imagen" [img]="producCreat.imagen"></app-img>
+                    </div>
+                        <span>{{producCreat.nombre_producto}}</span>
+                        <span>{{producCreat.precio_producto}}</span>
+                        <textarea name="" id="" cols="50" style="width: 65%; height: 20%; background-color: rgba(240, 248, 255, 0.525);" readonly>{{producCreat.descripcion}}</textarea> 
+                        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+
+

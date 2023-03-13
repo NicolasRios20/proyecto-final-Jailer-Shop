@@ -1,0 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Labrada&display=swap" rel="stylesheet">
+
+
+<div class="card my-5 " style="width: 20rem; ">
+    <app-img class="card-img-top" style="object-fit: cover;" *ngIf="producto.imagen" [img]="producto.imagen"></app-img>
+    <div class="card-body">
+        <h3 class="card-title" style="font-family: 'Labrada', serif;">{{producto.nombre_producto}}</h3>
+        <h5 class="card-subtitle" style="color: red;">COP {{producto.precio_producto}}</h5>
+        <p class="card-text" style="height:50px; width:100%; overflow: hidden; text-overflow:ellipsis;">{{producto.descripcion}}</p>
+        <button (click)="onAddTocart()" href="#" class="btn mx-5" style="background: #177987; color: aliceblue;">Agregar al carrito</button>
+    </div>
+</div>
