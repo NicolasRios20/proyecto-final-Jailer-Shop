@@ -3,6 +3,7 @@ import { TaskService } from 'src/app/services/task.service';
 import jtw_decode from "jwt-decode";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { datosUsuario } from 'src/app/models/task';
+import { Router } from '@angular/router';
 
 
 
@@ -16,10 +17,10 @@ export class ActualizarUsuariosComponent implements OnInit {
 
   constructor(
     private taskservice : TaskService,
+    private router: Router,
     ) { }
   id:any
   user: datosUsuario[]=[]
-  value:any;
 
   ngOnInit(): void {
     let datoToken: any = localStorage.getItem('token');
@@ -37,7 +38,6 @@ export class ActualizarUsuariosComponent implements OnInit {
           file: this.user[0].foto,
           fileSource: this.user[0].foto
         })
-        this.value = this.user[0].foto
     },error =>{
       alert("Ocurrio un Error por favor Verificar los Campos");
     }); 
@@ -64,6 +64,7 @@ export class ActualizarUsuariosComponent implements OnInit {
     formData.append('file', file?.value || '');
     this.taskservice.actualizar(formData,this.id).subscribe(data =>{
       console.log(data)
+      location.reload();;
     })
     
     this.ngOnInit()

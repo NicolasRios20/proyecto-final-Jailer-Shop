@@ -32,9 +32,9 @@ export class TaskService {
     return this.http.get(this.api);
   }
 
-  getTask(cc: string){
-    const path = `${this.api}${123}`;
-    return this.http.get<Task>(path);
+  getTask(cc: any){
+    const path = `${this.api}${cc}`;
+    return this.http.get<datosUsuario[]>(path);
   }
 
   crearUsuario(task: Task){
