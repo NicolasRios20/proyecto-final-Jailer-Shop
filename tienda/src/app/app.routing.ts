@@ -31,7 +31,7 @@ const appRoutes:Routes =[
     //rutas del aministrador
     {path:'proveedor', component:ProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
     {path:'crear-producto', component:CrearProductoComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
-    {path:'facturaproveedor',component:FacturaProveedorComponent},
+    {path:'facturaP',component:FacturaProveedorComponent},
     {path:'historial-factura',component:HistorialProveedorComponent},
     {path:'verfacturas/:id',component:VerFacturaComponent},
     {path:'facturasC',component:HistorialClienteComponent},

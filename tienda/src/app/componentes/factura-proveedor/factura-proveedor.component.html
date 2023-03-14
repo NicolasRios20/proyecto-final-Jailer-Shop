@@ -4,11 +4,9 @@
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
         <div class="col-xl-9">
-          <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: #123-123</strong></p>
+          <p style="color: #7e8d9f;font-size: 20px;">Factura >> <strong #nf [(ngModel)]="nFactura" >ID: #{{nFactura}}</strong></p>
         </div>
         <div class="col-xl-3 float-end">
-          <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
-              class="fas fa-print text-primary"></i> Print</a>
           <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
               class="far fa-file-pdf text-danger"></i> Export</a>
         </div>
@@ -20,7 +18,7 @@
         <div class="col-md-12">
           <div class="text-center">
             <i class="fab fa-mdb fa-4x ms-0" style="color:#5d9fc5 ;"></i>
-            <p class="pt-0">MDBootstrap.com</p>
+            <p class="pt-0">JAILER SHOP</p>
           </div>
 
         </div>
@@ -29,22 +27,22 @@
         <div class="row">
           <div class="col-xl-8">
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-              <li class="text-muted">Street, City</li>
-              <li class="text-muted">State, Country</li>
+              <li class="text-muted">Proveedor: <input list="colores" name="colores" type="text" placeholder="Ingrese nombre " (change)="id_proveedor($event)"></li>
+              <li class="text-muted" ><span #nf [(ngModel)]="proveedor[0].cedula">Cedula: <span>{{proveedor[0].cedula}} </span> </span></li>
+              <li class="text-muted">Armenia, Quindio</li>
               <li class="text-muted"><i class="fas fa-phone"></i> 123-456-789</li>
             </ul>
           </div>
           <div class="col-xl-4">
-            <p class="text-muted">Invoice</p>
+            <p class="text-muted">Factura</p>
             <ul class="list-unstyled">
               <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                  class="fw-bold">ID:</span>#123-456</li>
+                  class="fw-bold" #nf [(ngModel)]="nFactura">ID:</span>#{{nFactura}}</li>
               <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                  class="fw-bold">Creation Date: </span>Jun 23,2021</li>
+                  class="fw-bold">Fecha factura: </span>{{fecha | date}}</li>
               <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                  class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
-                  Unpaid</span></li>
+                  class="me-1 fw-bold">Patio:</span><span class="badge bg-warning text-black fw-bold" [(ngModel)]="proveedor[0].ubicacion_p">
+                    {{proveedor[0].ubicacion_p}}</span></li>
             </ul>
           </div>
         </div>
@@ -54,33 +52,21 @@
             <thead style="background-color:#84B0CA ;" class="text-white">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Description</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Amount</th>
+                <th scope="col">Codigo producto</th>
+                <th scope="col">Nombre producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Subtotal</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Pro Package</td>
-                <td>4</td>
-                <td>$200</td>
-                <td>$800</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Web hosting</td>
-                <td>1</td>
-                <td>$10</td>
-                <td>$10</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Consulting</td>
-                <td>1 year</td>
-                <td>$300</td>
-                <td>$300</td>
+              <tr *ngFor="let fila of datosTabla">
+                <td>{{fila.columna1}}</td>
+                <td>{{fila.columna2}}</td>
+                <td>{{fila.columna3}}</td>
+                <td>{{fila.columna4}}</td>
+                <td>{{fila.columna5}}</td>
+                <td>{{fila.columna6}}</td>
               </tr>
             </tbody>
 
@@ -118,8 +104,7 @@
 
 
 
-
-<!--<div class="margen">
+<div class="margen">
   <div class="wrap">
 
   </div>
@@ -167,9 +152,10 @@
         </div>
       </div>
 
-                <input list="productos" name="productos" type="text" (change)="productosF($event)">
-                <datalist id="productos">
-                    <option *ngFor="let item of productos ">{{item.nombre_producto}}</option>
+                <input list="productos" name="producto" type="text" (change)="productosF($event)">
+                <datalist id="productos" >
+                    <!--<option *ngFor="let item of productos " value="{{item.nombre_producto}}"></option>-->
+                    <option *ngFor="let c of productos" [value]="c.nombre_producto" >{{c.nombre_producto}}</option>
                 </datalist>
                 <button (click)="agregarFila()">añadir producto</button>
     
@@ -226,4 +212,4 @@
   </div>
 </div>
 
-<button type="submit" (click)="enviar()">guardar</button>-->
+<button type="submit" (click)="enviar()">guardar</button>
