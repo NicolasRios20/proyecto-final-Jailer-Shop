@@ -41,12 +41,12 @@ export class FacturaProveedorComponent implements OnInit {
   nmp: any = 1;
 
   
-  constructor(private proveedorService: ProveedorService, private productosService: ProductosService,private facturaproveedor: FacturapoveedorService ) { }
+  constructor(private proveedorService: ProveedorService, private productosService: ProductosService,private facturaproveedor: FacturapoveedorService ) {}
 
   ngOnInit(): void {
     this.proveedorService.getproveedores().subscribe(data => {
       this.proveedores = data
-      console.log(data)
+      console.log(this.proveedores,"proveedores")
       this.proveedor
     })
 
