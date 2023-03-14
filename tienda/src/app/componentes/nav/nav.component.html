@@ -45,8 +45,7 @@
                 <table>
                   <tr *ngFor="let item of categoria" >
                     <td>
-                      <a href="#" class="text-light " style="text-decoration: none;">{{item.nombre_categoria}}</a>
-                      
+                      <i class="text-light " (click)="idCategoria(item.id_categoria)"><label for="text">{{item.nombre_categoria}}</label></i>
                     </td>
                   </tr>
                 </table>
@@ -61,7 +60,7 @@
           
           <li class="nav-item" style="list-style: none;">
             <a class="navbar-link">
-              <img class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29">
+              <img class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29" [routerLink]="['/carrito']">
             </a>
           </li>
           

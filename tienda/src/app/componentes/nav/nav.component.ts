@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoriasService } from '../../services/categorias.service';
 import { Categoria } from '../../models/categorias.interface';
 import jtw_decode from "jwt-decode";
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class NavComponent implements OnInit {
 
   constructor(
     private categoriasService: CategoriasService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,9 @@ export class NavComponent implements OnInit {
 
   idCategoria(even: any){
     console.log(even)
+    if(even){
+      this.router.navigate(['/categoria',even]);
+    }
   }
 
   cerrarSesion(){

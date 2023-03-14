@@ -50,7 +50,7 @@ export class ProveedorComponent implements OnInit {
   }
 
   proveedorEliminar(event:any){
-
+    console.log(event)
     let resultado = window.confirm('Estas seguro?');
     if (resultado === true) {
       let cedula = event;

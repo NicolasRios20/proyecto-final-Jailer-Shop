@@ -9,14 +9,17 @@ import { Producto } from '../models/product.model';
 })
 export class CategoriasService {
   url = '/api/categorias/';
+
   constructor(
     private http: HttpClient
   ) { }
+
   getAll(){
     return this.http.get<[Categoria]>(this.url);
   }
 
   getCategoria(id:any){
-    return this.http.get<Producto[]>(this.url,id);
+    let url = `${this.url}${id}`;
+    return this.http.get<Producto[]>(url);
   }
 }

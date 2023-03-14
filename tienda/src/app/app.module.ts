@@ -30,6 +30,7 @@ import { VerFacturaComponent } from './componentes/ver-factura/ver-factura.compo
 import { ModalfuormularioproveedorComponent } from './componentes/modalfuormularioproveedor/modalfuormularioproveedor.component';
 import { HistorialClienteComponent } from './componentes/historial-cliente/historial-cliente.component';
 import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.component';
+import { CategoriaComponent } from './componentes/categoria/categoria.component';
 
 
 
@@ -57,6 +58,7 @@ import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.
     ModalfuormularioproveedorComponent,
     HistorialClienteComponent,
     VerFacturaCComponent,
+    CategoriaComponent,
    
   ],
   imports: [
