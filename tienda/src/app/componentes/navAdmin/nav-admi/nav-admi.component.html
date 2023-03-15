@@ -17,8 +17,8 @@
             <img  class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="foto" src="https://i.ibb.co/94D9z5P/logo.jpg" alt="">
           
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="perfil-usuario">Perfil</a></li>
-            <li><a class="dropdown-item" href="#" (click)="cerrarSesion()">Cerrar sesion</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/login']">Iniciar sesion</a></li>
+            <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrar sesion</a></li>
           </ul>
         </li>
       </span>
@@ -29,16 +29,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item ">
-              <a class="nav-link active text-light" href="#">Inicio</a>
+              <a class="nav-link active text-light" [routerLink]="['/productos']">Inicio</a>
           </li>
         <li class="nav-item">
-          <a [routerLink]="['/crear-producto']" routerLinkActive="active" class="nav-link active text-light" aria-current="page" href="#">Crear Producto</a>
+          <a [routerLink]="['/crear-producto']" routerLinkActive="active" class="nav-link active text-light" aria-current="page" [routerLink]="['/crear-producto']">Crear Producto</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a  routerLinkActive="router-link-active"  class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Administrar factura
+          </a>
+
+          <ul class="dropdown-menu" style="background-color: #3B0C04;">
+            <table>
+              <tr  >
+                <td>
+                  <i class="text-light "><a class="nav-link active text-light pt-1" [routerLink]="['/facturaP']">Factura del proveedor</a></i>
+                  <i class="text-light "><a class="nav-link active text-light pt-2" [routerLink]="['/historial-factura']">Historial facturas proveedor</a></i>
+                  <i class="text-light "><a class="nav-link active text-light pt-2" [routerLink]="['/facturasC']">Historial facturas cliente</a></i>
+                </td>
+              </tr>
+            </table>
+          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="#">Factura</a>
-        </li>
-        <li class="nav-item">
-            <a [routerLink]="['/proveedor']" class="nav-link active text-light" aria-current="page" href="#">Crear Proveedor</a>
+            <a [routerLink]="['/proveedor']" class="nav-link active text-light" aria-current="page">Crear Proveedor</a>
           </li>
         <li class="nav-item dropdown">
           <a  routerLinkActive="router-link-active"  class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +63,7 @@
             <table>
               <tr *ngFor="let item of categoria" >
                 <td>
-                  <i class="text-light " (click)="idCategoria(item.id_categoria)"><label for="text">{{item.nombre_categoria}}</label></i>
+                  <i class="nav-link active text-light " (click)="idCategoria(item.id_categoria)"><label for="text" class="pt-1">{{item.nombre_categoria}}</label></i>
                 </td>
               </tr>
             </table>

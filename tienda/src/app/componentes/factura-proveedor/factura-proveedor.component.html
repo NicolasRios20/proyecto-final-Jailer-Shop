@@ -1,4 +1,4 @@
-
+<app-nav-admi></app-nav-admi>
 <div class="card">
   <div class="card-body">
     <div class="container mb-5 mt-3">
@@ -13,11 +13,10 @@
         <hr>
       </div>
 
-      <!--Esta es una prueba -->
       <div class="container">
         <div class="col-md-12">
           <div class="text-center">
-            <i class="fab fa-mdb fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+            
             <p class="pt-0">JAILER SHOP</p>
           </div>
 
@@ -27,7 +26,17 @@
         <div class="row">
           <div class="col-xl-8">
             <ul class="list-unstyled">
-              <li class="text-muted">Proveedor: <input list="colores" name="colores" type="text" placeholder="Ingrese nombre " (change)="id_proveedor($event)"></li>
+              <li class="text-muted">Proveedor: <input list="colores" name="colores" type="text" placeholder="Ingrese nombre " (change)="id_proveedor($event)">
+                <datalist id="colores">
+                  <option *ngFor="let item of proveedores ">{{item.nombre_proveedor}}</option>
+                </datalist>
+              </li>
+              <li class="text-muted mt-2">Añadir producto: <input list="productos" name="producto" type="text" placeholder="Ingrese producto" (change)="productosF($event)">
+                <datalist id="productos" >
+                    <option *ngFor="let item of productos " value="{{item.nombre_producto}}"></option>
+                </datalist>
+                <button type="button" class="btn btn-primary text-capitalize " style="background-color:#177987 ; margin-left: 2px;" (click)="agregarFila()">Añadir</button>
+              </li>
               <li class="text-muted" ><span #nf [(ngModel)]="proveedor[0].cedula">Cedula: <span>{{proveedor[0].cedula}} </span> </span></li>
               <li class="text-muted">Armenia, Quindio</li>
               <li class="text-muted"><i class="fas fa-phone"></i> 123-456-789</li>
@@ -36,11 +45,11 @@
           <div class="col-xl-4">
             <p class="text-muted">Factura</p>
             <ul class="list-unstyled">
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" style="color:#177987 ;"></i> <span
                   class="fw-bold" #nf [(ngModel)]="nFactura">ID:</span>#{{nFactura}}</li>
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" style="color:#177987 ;"></i> <span
                   class="fw-bold">Fecha factura: </span>{{fecha | date}}</li>
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" style="color:#177987 ;"></i> <span
                   class="me-1 fw-bold">Patio:</span><span class="badge bg-warning text-black fw-bold" [(ngModel)]="proveedor[0].ubicacion_p">
                     {{proveedor[0].ubicacion_p}}</span></li>
             </ul>
@@ -49,7 +58,7 @@
 
         <div class="row my-2 mx-1 justify-content-center">
           <table class="table table-striped table-borderless">
-            <thead style="background-color:#84B0CA ;" class="text-white">
+            <thead style="background-color:#177987 ;" class="text-white">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Codigo producto</th>
@@ -73,30 +82,35 @@
           </table>
         </div>
         <div class="row">
+          <hr>
           <div class="col-xl-8">
-            <p class="ms-3">Add additional notes and payment information</p>
-
+              <div class="col-12 mt-3">
+                <h4>Condiciones y formas de pago</h4>
+                <p>El pago se debe realizar en un plazo de 15 dias.</p>
+                <p>
+                  Banco Banreserva
+                  <br/>
+                  IBAN: DO XX 0075 XXXX XX XX XXXX XXXX
+                  <br/>
+                  Código SWIFT: BPDODOSXXXX
+                </p>
+            </div>
           </div>
           <div class="col-xl-3">
-            <ul class="list-unstyled">
-              <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-              <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-            </ul>
-            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                style="font-size: 25px;">$1221</span></p>
+            <p class="text-black float-start"><span class="text-black me-3"> Total factura:</span><span
+                style="font-size: 25px;">$ {{total}}</span></p>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-xl-10">
-            <p>Thank you for your purchase</p>
+            <p>Gracias por confiar en nosotros</p>
           </div>
           <div class="col-xl-2">
-            <button type="button" class="btn btn-primary text-capitalize"
-              style="background-color:#60bdf3 ;">Pay Now</button>
+            <button type="submit" class="btn btn-primary text-capitalize"
+              style="background-color:#177987 ;" (click)="enviar()">Guardar</button>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -104,7 +118,7 @@
 
 
 
-<div class="margen">
+<!--<div class="margen">
   <div class="wrap">
 
   </div>
@@ -154,7 +168,7 @@
 
                 <input list="productos" name="producto" type="text" (change)="productosF($event)">
                 <datalist id="productos" >
-                    <!--<option *ngFor="let item of productos " value="{{item.nombre_producto}}"></option>-->
+                    <option *ngFor="let item of productos " value="{{item.nombre_producto}}"></option>
                     <option *ngFor="let c of productos" [value]="c.nombre_producto" >{{c.nombre_producto}}</option>
                 </datalist>
                 <button (click)="agregarFila()">añadir producto</button>
@@ -212,4 +226,9 @@
   </div>
 </div>
 
-<button type="submit" (click)="enviar()">guardar</button>
+<button type="submit" (click)="enviar()">guardar</button>-->
+
+
+
+
+
