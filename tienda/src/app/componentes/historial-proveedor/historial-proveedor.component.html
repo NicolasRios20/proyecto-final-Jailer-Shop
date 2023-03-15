@@ -22,7 +22,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let factura of facturas" (click)="mostrarFactura(factura.id_compra)">
+              <tr style="cursor: pointer;" *ngFor="let factura of facturas" (click)="mostrarFactura(factura.id_compra)">
                 <th scope="row">{{factura.id_compra}}</th>
                 <td>{{factura.nombre_proveedor}}</td>
                 <td>{{factura.valor}}</td>
