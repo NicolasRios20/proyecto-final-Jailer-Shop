@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import jtw_decode from "jwt-decode";
 import { Observable } from 'rxjs';
-import { TaskService } from '../../services/task.service';
 
 
 @Injectable({
@@ -11,9 +10,7 @@ import { TaskService } from '../../services/task.service';
 export class GuardRutasGuard implements CanActivate{
     
   constructor(
-    private taskService: TaskService,
     private route: Router,
-    private taskservice : TaskService
   ){}
 
 
