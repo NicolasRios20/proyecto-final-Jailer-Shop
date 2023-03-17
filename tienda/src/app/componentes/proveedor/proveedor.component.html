@@ -61,18 +61,15 @@
                 <th scope="col">Cuenta bancaria</th>
                 <th scope="col">Ubicación</th>
                 <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let proveedor of proveedor">
+              <tr *ngFor="let proveedor of proveedores">
                 <th>{{proveedor.cedula}}</th>
                 <td>{{proveedor.nombre_proveedor}}</td>
                 <td>{{proveedor.cuenta_bancaria}}</td>
                 <td>{{proveedor.ubicacion_p}}</td>
-                <!--<td><i class="fas fa-pencil" (click)="proveedorEditar(proveedor.cedula)" style="color: rgb(0, 59, 59);"></i></td>-->
-                <td><app-modalfuormularioproveedor></app-modalfuormularioproveedor></td>
-                <td><i class="fa-solid fa-trash-can" (click)="proveedorEliminar(proveedor.cedula)"></i></td>
+                <td><button class="fas fa-pencil" (click)="ConsultarProveedor(proveedor.cedula)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" ></button></td>
               </tr>
             </tbody>
 
@@ -81,6 +78,43 @@
         
           
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="nombre" class="col-form-label">Nombre proveedor:</label>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="cuentaBancaria" class="col-form-label">Cuenta Bancaria:</label>
+            <input type="text" class="form-control" id="cuentaBancaria">
+          </div>
+          <div class="mb-3">
+            <label for="ubicacion" class="col-form-label">Ubicación:</label>
+            <input type="text" class="form-control" id="ubicacion">
+          </div>
+          <div class="mb-3">
+            <label for="cedula" class="col-form-label">Cedula:</label>
+            <input type="text" class="form-control" id="cedula">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>

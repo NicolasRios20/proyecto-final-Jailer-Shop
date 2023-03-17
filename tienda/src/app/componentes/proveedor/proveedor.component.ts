@@ -12,7 +12,8 @@ import { ModalfuormularioproveedorComponent } from '../modalfuormularioproveedor
 })
 export class ProveedorComponent implements OnInit {
   
-  proveedor: Proveedor[] = []
+  proveedores: Proveedor[] = [];
+  proveedor: any;
 
   constructor(
     private proveedorService: ProveedorService,    
@@ -22,7 +23,7 @@ export class ProveedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.proveedorService.getproveedores().subscribe(data => {
-      this.proveedor = data.reverse()
+      this.proveedores = data.reverse()
   });
   }
 
@@ -61,6 +62,14 @@ export class ProveedorComponent implements OnInit {
     } else { 
         window.alert('Pareces indeciso');
     }
+  }
+
+  ConsultarProveedor(event:any){
+    this.proveedorService.getProveedor(event)
+    .subscribe(dato => {
+      this.proveedor = dato;
+      console.log(this.proveedor);
+    })
   }
 
 }

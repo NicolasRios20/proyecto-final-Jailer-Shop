@@ -10,7 +10,7 @@ const createTrans = () => {
         secure: true,
         auth: {
             user: "shopj2353@gmail.com",
-            pass: "yyzftxsalwguqlnf"
+            pass: "tmliifkvnbkzfout"
         }
     })
 

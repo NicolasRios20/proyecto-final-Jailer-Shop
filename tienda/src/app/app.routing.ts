@@ -33,11 +33,11 @@ const appRoutes:Routes =[
     //rutas del aministrador
     {path:'proveedor', component:ProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
     {path:'crear-producto', component:CrearProductoComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
-    {path:'facturaP',component:FacturaProveedorComponent},
-    {path:'historial-factura',component:HistorialProveedorComponent},
-    {path:'verfacturas/:id',component:VerFacturaComponent},
-    {path:'facturasC',component:HistorialClienteComponent},
-    {path:'verfacturasC/:id',component:VerFacturaCComponent},
+    {path:'facturaP',component:FacturaProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
+    {path:'historial-factura',component:HistorialProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
+    {path:'verfacturas/:id',component:VerFacturaComponent,data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
+    {path:'facturasC',component:HistorialClienteComponent,data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
+    {path:'verfacturasC/:id',component:VerFacturaCComponent,data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
 
     //rutas del usuario
     {path:'perfil-usuario', component:ActualizarUsuariosComponent, data:{rol: ['0']}, canActivate: [GuardRutasGuard]},
