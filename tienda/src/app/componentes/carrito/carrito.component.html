@@ -32,8 +32,8 @@
                         <input type="text" [(ngModel)]="cantidad" style="visibility: hidden;">{{fila.columna3}}
                     </td>
                     <div class="botones">
-                        <td><button class="bot btn btn-danger" value="" (click)="decrementarCantidad(i)">-</button></td>
-                        <td><button class="bot btn btn-info" value="" (click)="incrementarCantidad(i)">+</button></td>
+                        <td><button class="boton btn btn-danger" value="" (click)="decrementarCantidad(i)">-</button></td>
+                        <td><button class="boton btn btn-info" value="" (click)="incrementarCantidad(i)">+</button></td>
                     </div>
 
                     <td>{{fila.columna4}}</td>
@@ -53,8 +53,6 @@
                 </td>
                 <td class="font-weight-bold"><span></span></td>
                 <button class="bot btn btn-info comprar" (click)="comprar()">comprar</button>
-
-
             </thead>
         </table>
     </div>

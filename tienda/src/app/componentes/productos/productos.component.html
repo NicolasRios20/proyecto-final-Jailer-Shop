@@ -1,19 +1,15 @@
-<div *ngIf = "usuario == 0; else login ">
+<div *ngIf="usuario == 0; else login ">
     <app-nav> </app-nav>
 </div>
 
 <ng-template #login>
     <app-nav-admi></app-nav-admi>
-</ng-template >
+</ng-template>
 
 <app-carrusel></app-carrusel>
 
 <div class="products--grip " style="display: flex; flex-wrap:wrap; justify-content: center; margin-left: 10%; margin-right: 10%;">
-    <app-producto [producto]="productos" 
-        *ngFor="let productos of productos"
-        (addedProduct)="onAddToShoppingCart($event)"
-    ></app-producto>
+    <app-producto [producto]="productos" *ngFor="let productos of productos" (addedProduct)="onAddToShoppingCart($event)"></app-producto>
 </div>
 
-
-
+<app-footer></app-footer>

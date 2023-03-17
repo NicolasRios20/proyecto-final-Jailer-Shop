@@ -16,6 +16,7 @@ import { VerFacturaComponent } from './componentes/ver-factura/ver-factura.compo
 import { HistorialClienteComponent } from "./componentes/historial-cliente/historial-cliente.component";
 import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { RecuperarContrasenaComponent } from './componentes/recuperar-contrasena/recuperar-contrasena.component';
 
 const appRoutes:Routes =[
 
@@ -27,6 +28,7 @@ const appRoutes:Routes =[
     {path:'nav', component:NavAdmiComponent},
     {path:'facturacliente',component:CarritoComponent},
     {path:'categoria/:id', component:CategoriaComponent},
+    {path: 'recuperarcontrasena',component:RecuperarContrasenaComponent},
     
     //rutas del aministrador
     {path:'proveedor', component:ProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},

@@ -1,9 +1,8 @@
-.group__footer{
+.group__footer {
     background-color: #3B0C04;
     color: #FFFFFF;
     text-align: center;
-    
-    padding: 10px;
     width: 100%;
     font-size: 16px;
+    padding: 1em 0;
 }
