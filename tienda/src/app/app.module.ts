@@ -30,6 +30,7 @@ import { VerFacturaComponent } from './componentes/ver-factura/ver-factura.compo
 import { HistorialClienteComponent } from './componentes/historial-cliente/historial-cliente.component';
 import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { RecuperarContrasenaComponent } from './componentes/recuperar-contrasena/recuperar-contrasena.component';
 
 
 
@@ -57,6 +58,7 @@ import { CategoriaComponent } from './componentes/categoria/categoria.component'
     HistorialClienteComponent,
     VerFacturaCComponent,
     CategoriaComponent,
+    RecuperarContrasenaComponent,
    
   ],
   imports: [
