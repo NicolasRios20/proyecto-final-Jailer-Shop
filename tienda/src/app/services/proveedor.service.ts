@@ -39,4 +39,12 @@ export class ProveedorService {
     return this.http.delete<Proveedor[]>(`${this.url}${cedula}`);
   }
 
+  //actualizar proveedor
+  actualizarProveedor(id: any, dato:any){
+    const urlapi = `${this.url}${id}`
+    console.log(urlapi, dato)
+    return this.http.put<[Proveedor]>(urlapi, dato);
+  }
+
+
 }
