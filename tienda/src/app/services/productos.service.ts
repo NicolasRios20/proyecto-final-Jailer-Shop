@@ -21,5 +21,8 @@ export class ProductosService {
   create(data: any){
     return this.http.post<Producto>(this.url,data);
   }
-
+  getProducto(idProducto:any){
+    let url = `${this.url}${idProducto}`;
+    return this.http.get<Producto>(url)
+  }
 }

@@ -31,6 +31,7 @@ import { ModalfuormularioproveedorComponent } from './componentes/modalfuormular
 import { HistorialClienteComponent } from './componentes/historial-cliente/historial-cliente.component';
 import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 
 
 
@@ -59,6 +60,7 @@ import { CategoriaComponent } from './componentes/categoria/categoria.component'
     HistorialClienteComponent,
     VerFacturaCComponent,
     CategoriaComponent,
+    DetalleProductoComponent,
    
   ],
   imports: [

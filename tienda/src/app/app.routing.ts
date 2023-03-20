@@ -1,4 +1,4 @@
-import {ModuleWithProviders} from '@angular/core';
+import { ModuleWithProviders, Component } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { CrearProductoComponent } from './componentes/crear-producto/crear-producto.component';
@@ -16,6 +16,7 @@ import { VerFacturaComponent } from './componentes/ver-factura/ver-factura.compo
 import { HistorialClienteComponent } from "./componentes/historial-cliente/historial-cliente.component";
 import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 
 const appRoutes:Routes =[
 
@@ -27,6 +28,7 @@ const appRoutes:Routes =[
     {path:'nav', component:NavAdmiComponent},
     {path:'facturacliente',component:CarritoComponent},
     {path:'categoria/:id', component:CategoriaComponent},
+    {path:'detalle-producto', component:DetalleProductoComponent},
     
     //rutas del aministrador
     {path:'proveedor', component:ProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
