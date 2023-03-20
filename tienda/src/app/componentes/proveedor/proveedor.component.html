@@ -14,7 +14,7 @@
         <div class="form-group row pt-3">
           <label  class="col-sm-2 col-form-label">Cedula</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputCedula" required formControlName="cedula" placeholder="N°. Cedula">
+            <input type="text" class="form-control" id="inputCedula" required formControlName="cedula" placeholder="N°. Cedula" >
           </div>
         </div>
         <div class="form-group row pt-3">
@@ -31,7 +31,7 @@
         </div>
         <div class="d-flex flex-row justify-content-center p-4">
                 
-          <button type="submit" value="crearProducto()" class="btn text-light me-5" style="background: #177987;">Guardar proveedor</button>
+          <button type="submit" class="btn text-light me-5" style="background: #177987;">Guardar proveedor</button>
                            
         </div>
       </form>
@@ -64,13 +64,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let proveedor of proveedor">
+              <tr *ngFor="let proveedor of proveedores">
                 <th>{{proveedor.cedula}}</th>
                 <td>{{proveedor.nombre_proveedor}}</td>
                 <td>{{proveedor.cuenta_bancaria}}</td>
                 <td>{{proveedor.ubicacion_p}}</td>
-                <!--<td><i class="fas fa-pencil" (click)="proveedorEditar(proveedor.cedula)" style="color: rgb(0, 59, 59);"></i></td>-->
-                <td><app-modalfuormularioproveedor></app-modalfuormularioproveedor></td>
+
+                <td><button class="fas fa-pencil" (click)="ConsultarProveedor(proveedor.id_proveedor)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" ></button></td>
               </tr>
             </tbody>
 
@@ -79,6 +79,43 @@
         
           
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formularioActualizacion" (ngSubmit)="actualizarProveedor(formularioActualizacion.value)">
+          <div class="mb-3">
+            <label for="nombre" class="col-form-label">Nombre proveedor:</label>
+            <input type="text" class="form-control" formControlName="nombre_proveedor" id="nombre" >
+          </div>
+          <div class="mb-3">
+            <label for="cuentaBancaria" class="col-form-label">Cuenta Bancaria:</label>
+            <input type="text" class="form-control" formControlName="cuenta_bancaria" id="cuentaBancaria">
+          </div>
+          <div class="mb-3">
+            <label for="ubicacion" class="col-form-label">Ubicación:</label>
+            <input type="text" class="form-control" formControlName="ubicacion_p" id="ubicacion">
+          </div>
+          <div class="mb-3">
+            <label for="cedula" class="col-form-label">Cedula:</label>
+            <input type="text" class="form-control" formControlName="cedula" id="cedula" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" *ngFor="let proveedor of proveedor">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Close</button>
+        <button type="submit" (click)="actualizarProveedor(proveedor.id_proveedor)" value="actualizarProveedor()" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>
