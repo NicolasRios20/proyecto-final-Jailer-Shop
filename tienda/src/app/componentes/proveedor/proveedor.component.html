@@ -90,7 +90,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Proveedor</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -114,8 +114,8 @@
         </form>
       </div>
       <div class="modal-footer" *ngFor="let proveedor of proveedor">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Close</button>
-        <button type="submit" (click)="actualizarProveedor(proveedor.id_proveedor)" value="actualizarProveedor()" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Cerrar</button>
+        <button type="submit" (click)="actualizarProveedor(proveedor.id_proveedor)" value="actualizarProveedor()" class="btn btn-primary">Actualizar</button>
       </div>
     </div>
   </div>
