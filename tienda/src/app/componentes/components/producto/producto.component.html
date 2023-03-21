@@ -10,25 +10,28 @@
         <h5 class="card-subtitle" style="color: red;">COP {{producto.precio_producto}}</h5>
         <p class="card-text" style="height:50px; width:100%; overflow: hidden; text-overflow:ellipsis;">{{producto.descripcion}}</p>
         <button (click)="onAddTocart()" href="#" class="btn mx-5" style="background: #177987; color: aliceblue;">Agregar al carrito</button>
-        <!--<button class="btn btn-primary" (click)="addModalProducto()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Detalle</button>-->
+        <button class="btn btn-primary" (click)="addModalProducto()" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Detalle</button>
     </div>
 </div>
 </div>
 
 
-<!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!--Modal del detalle del producto-->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-body">
             <div class="container mt-5">
                 <div class="">
-                  <h2>{{producto.nombre_producto}}</h2>
+                  <h2>{{produc.nombre_producto}}</h2>
                     <div class="">
-                      <app-img class="card-img-top" style="object-fit: cover;" *ngIf="producto.imagen" [img]="producto.imagen"></app-img>
+                      <img  style="width: 100%; height: 300px; object-fit: cover;" class="imga" src="{{produc.imagen}}">
+
                     </div>
                     <div class="">
                         
-                        <h3>Precio: {{producto.precio_producto}}</h3>
+                        <h3>Precio: {{produc.precio_producto}}</h3>
                         <ul>
                           <li class="list-group-item"><strong>Categoría:</strong></li>
                           <li class="list-group-item"><strong>Disponibilidad:</strong>diponible</li>
@@ -49,5 +52,5 @@
         </div>
       </div>
     </div>
-  </div>-->
+  </div>
 

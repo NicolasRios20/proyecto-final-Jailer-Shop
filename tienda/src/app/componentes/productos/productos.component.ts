@@ -11,13 +11,23 @@ import { SrviciosService } from 'src/app/services/srvicios.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  usuario: 0 = 0;
+  
   myShoppingCart: Producto[] = [];
-  total=0;
   productos: Producto[] = [];
   producto : any = [];
+  usuario: 0 = 0;
+  total=0;
 
-  
+  //para el detalle del producto
+  produc : any = {
+    id_producto: '',
+    nombre_producto: '',
+    cantidad: 0,
+    id_categoria: 0,
+    precio_producto: 0,
+    descripcion: '',
+    imagen:'',
+  }
   constructor(
     private srviciosService: SrviciosService,
     private productosService: ProductosService,
@@ -63,6 +73,14 @@ export class ProductosComponent implements OnInit {
     }
     
   }
+
+  detalleProducto(id: string){
+    this.productosService.getProducto(id)
+    .subscribe(data =>{
+      this.produc = data
+      console.log(this.produc.nombre_producto);
+    })
+  }
 }
-//this.total = this.srviciosService.getTotal();
+
         

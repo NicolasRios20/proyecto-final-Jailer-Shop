@@ -9,7 +9,13 @@
 <app-carrusel></app-carrusel>
 
 <div class="products--grip " style="display: flex; flex-wrap:wrap; justify-content: center; margin-left: 10%; margin-right: 10%;">
-    <app-producto [producto]="productos" *ngFor="let productos of productos" (addedProduct)="onAddToShoppingCart($event)"></app-producto>
+    <app-producto 
+        [producto]="productos" 
+        [produc]="produc" 
+        *ngFor="let productos of productos" 
+        (addedProduct)="onAddToShoppingCart($event)"
+        (detalleProduct)="detalleProducto($event)">
+    </app-producto>
 </div>
 
 <app-footer></app-footer>

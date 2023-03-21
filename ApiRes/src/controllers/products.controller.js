@@ -5,8 +5,9 @@ const getById = async (req, res) => {
     try {
         const { id_producto } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("call listar_producto(?)", id_producto);
-        res.json(result);
+        const result = await connection.query("SELECT * FROM productos WHERE id_producto = ?", id_producto);
+        const datos = result.shift(0);
+        res.json(datos);
     } catch (error) {
         res.status(500);
         res.send(error.message);
