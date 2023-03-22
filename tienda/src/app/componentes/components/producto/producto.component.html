@@ -2,13 +2,52 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Labrada&display=swap" rel="stylesheet">
 
-
-<div class="card my-5 " style="width: 20rem; transition: transform 0.5s;  ">
+<div class="producto" style="transition: transform 0.5s; ">
+<div class="card my-5 " style="width: 20rem;  ">
     <app-img class="card-img-top" style="object-fit: cover;" *ngIf="producto.imagen" [img]="producto.imagen"></app-img>
     <div class="card-body">
         <h3 class="card-title" style="font-family: 'Labrada', serif;">{{producto.nombre_producto}}</h3>
         <h5 class="card-subtitle" style="color: red;">COP {{producto.precio_producto}}</h5>
         <p class="card-text" style="height:50px; width:100%; overflow: hidden; text-overflow:ellipsis;">{{producto.descripcion}}</p>
-        <button (click)="onAddTocart()" href="#" class="btn mx-5" style="background: #177987; color: aliceblue;">Agregar al carrito</button>
+        <div class="row justify-content-center align-items-center justify-content-evenly ">
+          <button class="btn btn-outline-dark" style="width: 30%;" (click)="addModalProducto()" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Detalle</button>
+          <button (click)="onAddTocart()" href="#" class="btn  " style="background: #177987; color: aliceblue; width: 50%;">Agregar al carrito</button>
+        </div>
     </div>
 </div>
+</div>
+
+
+
+<!--Modal del detalle del producto-->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-body">
+          
+            <div class="container">
+              
+                  <div class="row">
+                    <div style="width: 50%;" class="mt-4">
+
+                      <img  style="width: 100%; object-fit: cover;" class="imga img-fluid" src="{{produc.imagen}}">
+
+                    </div>
+                    <div style="width: 50%;" class="mt-4">
+                      <button type="button" class="btn-close" style="margin-left: 98%;" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h2 class="modal-title">{{produc.nombre_producto}}</h2>
+                        <h3 class="mt-3">Precio: <span style="color: red;">${{produc.precio_producto}}</span></h3>
+                        <p>Descripción producto</p>
+                        <p>{{produc.descripcion}}</p>                                             
+                        <div class="d-flex justify-content-center">
+                            <button (click)="onAddTocart()" type="button" class="btn text-white " style="background: #177987;">Agregar al carrito</button>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,9 +1,9 @@
-<img style="width: 100%; height: 300px;   object-fit: cover;" (load)="imgLoaded()" (error)="imgError()" [src]="img" *ngIf = "img; else elseImg" >
+<img style="width: 100%; height: 300px; object-fit: cover;" (load)="imgLoaded()" (error)="imgError()" [src]="img" *ngIf="img; else elseImg">
 
 <!--<h3>{{counter}}</h3>-->
 
 <ng-template #elseImg>
 
-    <img  class="img_produc" [src]="imageDefaul">
+    <img class="img_produc" [src]="imageDefaul">
 
-</ng-template> 
+</ng-template>

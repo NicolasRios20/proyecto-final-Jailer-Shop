@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
   categoria: Categoria[] = [];
   usuario: datosUsuario[] = [];
   imagen = "https://i.ibb.co/94D9z5P/logo.jpg";
-  login: any;
+  login!: boolean;
   id:any;
 
   constructor(
@@ -30,12 +30,12 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.botonLogin();
-    this.fotoperfil();
     this.categoriasService.getAll()
     .subscribe(data => {
         this.categoria = data; 
     })
+    this.botonLogin();
+    this.fotoperfil();
   }
 
   idCategoria(even: any){
@@ -50,9 +50,9 @@ export class NavComponent implements OnInit {
 
   botonLogin(){
     if(localStorage.getItem('token')){
-      this.login = null;
+      this.login = true;
     }else{
-      this.login = '';
+      this.login = false;
     }
   }
 
