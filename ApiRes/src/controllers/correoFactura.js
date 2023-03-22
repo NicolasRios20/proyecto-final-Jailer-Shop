@@ -14,29 +14,27 @@ const createTrans = () => {
     return transport
 };
 
-const sendMail = async(dato) => {
+const sendMail = async(resultado) => {
+    let fileName = resultado[0]
+    let correo = resultado[1]
     const transporter = createTrans()
     const info = await transporter.sendMail({
         from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
-        to: `${dato.correo}`,
-        subject: `Bienvenido ha Jailer Shop ${dato.nombre}`,
+        to: `${correo}`,
+        subject: `factura`,
+        attachments: [
+            {
+              filename: `${fileName}`,
+              path: `./uploads/${fileName}` // Path to factura file
+            }
+          ]
 
     })
 
     console.log("Message sent: %s", info.messageId)
 }
 
-/*const sendFactura = async (correo) => {
-  const transporter = createTrans();
-  const info = await transporter.sendFactura({
-    from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
-    to: `${correo}`,
-    subject: `factura`,
-    // Agregar cualquier otra opción necesaria
-  });
-};*/
 
 
 
-exports.sendMail = (dato) => sendMail(dato);
-//exports.sendFactura = (correo) => sendFactura(correo)
+exports.sendMail = (resultado) => sendMail(resultado);

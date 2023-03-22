@@ -1,5 +1,5 @@
 <app-nav-admi></app-nav-admi>
-<div class="card">
+<div class="card" id="html-to-pdf">
   <div  id="app" class="card-body">
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
@@ -7,7 +7,7 @@
           <p style="color: #7e8d9f;font-size: 20px;">Factura >> <strong>ID: #{{cliente[0].no_venta}}</strong></p>
         </div>
         <div class="col-xl-3 float-end">
-          <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+          <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark" (click)="generatePdf()"><i
               class="far fa-file-pdf text-danger"></i> Export</a>
         </div>
         <hr>
@@ -101,128 +101,3 @@
     </div>
   </div>
 </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-<!-- <div class="margen">
-    <div class="wrap">
-  
-    </div>
-    
-    <div id="app" class="col-11">
-    
-        <h2>Factura</h2>
-    
-        <div class="row my-3">
-          <div class="col-10">
-            <h1>Mil Pasos</h1>
-            <p>Av. Winston Churchill</p>
-            <p>Plaza Orleans 3er. nivel</p>
-            <p>local 312</p>
-          </div>
-          <div class="col-2">
-            <img src="#" />
-          </div>
-        </div>
-      
-        <hr />
-      
-        <div class="row fact-info mt-3">
-          <div class="col-3">
-            <h5>Facturar a</h5>
-            <p>{{cliente[0].nombre}}</p>         
-          </div>
-          <div class="col-3">
-            <h5>ciudad</h5>
-            <p>{{cliente[0].ciudad}}</p>
-          </div>
-          <div class="col-3">
-            <h5 for="nf">N° de factura</h5>
-            <h5>Fecha</h5>
-            <h5>direccion</h5>
-          </div>
-          <div class="col-3">
-            <p>{{cliente[0].no_venta}}</p> 
-            <p>{{cliente[0].fecha_venta}}</p>
-            <p>{{cliente[0].direccion}}</p> 
-          </div>
-        </div>
-      
-        <div class="row my-5">
-          <table class="table table-borderless factura">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>codigo Producto</th>
-                <th>nombre</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let factura of productos; index as i;">
-                <td>{{i+1}}</td>
-                <td>{{factura.id_producto}}</td>
-                <td>{{factura.nombre_producto}}</td>
-                <td>{{factura.cantidad}}</td>
-                <td>{{factura.precio_producto}}</td>
-                <td>{{factura.valor_total}}</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Total Factura</th>
-                <th>${{cliente[0].total_venta}}</th>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-  
-        
-      
-        <div class="cond row">
-          <div class="col-12 mt-3">
-            <h4>Condiciones y formas de pago</h4>
-            <p>El pago se debe realizar en un plazo de 15 dias.</p>
-            <p>
-              Banco Banreserva
-              <br/>
-              IBAN: DO XX 0075 XXXX XX XX XXXX XXXX
-              <br/>
-              Código SWIFT: BPDODOSXXXX
-            </p>
-          </div>
-        </div>
-    </div>
-  </div>-->

@@ -124,6 +124,7 @@ export class CarritoComponent implements OnInit {
     const encabezado = {
       id_cliente: id.id,
       valor_total: this.total,
+      no_venta: this.nFactura,
       produc: this.remisiones
       }
     console.log(encabezado.produc,"hola")
