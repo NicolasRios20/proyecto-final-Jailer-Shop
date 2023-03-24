@@ -30,6 +30,7 @@ const add = async (req, res) => {
                 nombre:nombre,
                 correo:correo,
                 contrasena:contrai,
+                foto: 'https://i.ibb.co/94D9z5P/logo.jpg',
                 rol:rol,
             };
             try {

@@ -63,14 +63,11 @@ export class ActualizarUsuariosComponent implements OnInit {
     formData.append('telefono', this.formulario.get('telefono')?.value || '');
     formData.append('file', file?.value || '');
     this.taskservice.actualizar(formData,this.id).subscribe(data =>{
-      console.log(data)
       location.reload();;
     })
     
     this.ngOnInit()
   }
-
-
 
   imagenFile(event:any){
 

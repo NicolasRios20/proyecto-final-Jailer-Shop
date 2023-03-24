@@ -13,7 +13,8 @@ import { FacturaclienteService } from 'src/app/services/facturacliente.service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  nFactura = 0
+  nFactura = 0;
+  cantidadp = 0;
   myShoppingCart: any;
   datosTabla: any = []
   cantidad = 1;
@@ -57,16 +58,23 @@ export class CarritoComponent implements OnInit {
     
   eliminar() {
     localStorage.clear();
-    this.exitoso();
+    
   }
     
   incrementarCantidad(index: number) {
-    this.datosTabla[index].columna3++;
-    const nuevaSuma = this.datosTabla[index].columna4 * this.datosTabla[index].columna3;
-    this.datosTabla[index].columna5 = nuevaSuma;
-    this.subtotal = this.datosTabla.reduce((acumulador: any, elemento: any) => acumulador + elemento.columna5, 0);
-    this.total = this.subtotal;
-    console.log(this.total); 
+    this.cantidadp = this.productos[index].cantidad
+    if (this.cantidadp == this.datosTabla[index].columna3) {
+      this.agotado();
+    } else {
+      this.datosTabla[index].columna3++;
+      const nuevaSuma = this.datosTabla[index].columna4 * this.datosTabla[index].columna3;
+      this.datosTabla[index].columna5 = nuevaSuma;
+      this.subtotal = this.datosTabla.reduce((acumulador: any, elemento: any) => acumulador + elemento.columna5, 0);
+      this.total = this.subtotal;
+      console.log(this.total); 
+      
+    }
+
   }
     
   decrementarCantidad(index: number) {
@@ -135,26 +143,13 @@ export class CarritoComponent implements OnInit {
       console.log(error);
     }
     )}
-    /*const encabezado = {
-      id_cliente: id.id,
-      valor_total: this.total,
-      produc: this.remisiones
-    }
-    this.facturacliente.guardarFactura(encabezado)
-    .subscribe((data)=>{
-      console.log(data,"bien");
-    },error =>{
-      console.log(error,);
-    }
-    
-  )}*/
 
-  exitoso(){
+
+  agotado(){
     Swal.fire({
-      title: 'COMPRA EXITOSA',
-      icon: 'success',
+      title: 'Stock Insuficiente ',
+      icon: 'warning',
       showCloseButton: true,
-      confirmButtonText: '<a href="http://localhost:4200/productos" style="text-color: white;" t>OK</a>'
     })
   }
   
