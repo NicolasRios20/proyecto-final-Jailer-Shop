@@ -13,7 +13,7 @@ export class ProductoComponent {
   @Output() addedProduct = new EventEmitter<Producto>();
   @Output() detalleProduct = new EventEmitter<string>();
 
-
+  // listar todos los productos.
   @Input() producto : any = {
     id_producto: '',
     nombre_producto: '',
@@ -24,6 +24,7 @@ export class ProductoComponent {
     imagen:'',
   }
 
+  //objeto para mostrar el detalle del producto.
   @Input() produc : any = {
     id_producto: '',
     nombre_producto: '',
@@ -38,7 +39,6 @@ export class ProductoComponent {
 ) {}
 
   onAddTocart(){
-    
     this.addedProduct.emit(this.producto);
   }
 
