@@ -9,17 +9,16 @@
         <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">imagen</th>
+                    <th scope="col">Imagen</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Acción</th>
                     <th scope="col">Precio</th>
-                    <th scope="col">subtotal</th>
+                    <th scope="col">Subtotal</th>
                     <th scope="col">Eliminar</th>
                 </tr>
                 <tr *ngFor="let fila of datosTabla, let i = index">
-                    <th scope="row">{{fila.columna1}}</th>
+                    
 
                     <td class="imgCarrito">
                         <div>
@@ -32,8 +31,8 @@
                         <input type="text" [(ngModel)]="cantidad" style="visibility: hidden;">{{fila.columna3}}
                     </td>
                     <div class="botones">
-                        <td><button class="boton btn btn-danger" value="" (click)="decrementarCantidad(i)">-</button></td>
-                        <td><button class="boton btn btn-info" value="" (click)="incrementarCantidad(i)">+</button></td>
+                        <td><button class="btn " style="background-color: antiquewhite;" value="" (click)="decrementarCantidad(i)">-</button></td>
+                        <td><button class="btn" style="background-color:antiquewhite;" value="" (click)="incrementarCantidad(i)">+</button></td>
                     </div>
 
                     <td>{{fila.columna4}}</td>
@@ -41,18 +40,18 @@
                         <input type="text" #nf [(ngModel)]="subtotal" style="visibility:hidden">{{fila.columna5}}
                     </td>
 
-                    <td><button class="bot btn btn-danger" (click)="eliminarCantidad(fila.columna1)">eliminar</button></td>
+                    <td><button class="bot btn btn-danger" (click)="eliminarCantidad(fila.columna1)">Eliminar</button></td>
                 </tr>
 
-                <th scope="row" colspan="2">Total productos</th>
+                <th scope="row" colspan="2">Total pagar:</th>
                 <td>
                     <input type="text" #nf [(ngModel)]="total" style="visibility:hidden">{{total}}
                 </td>
                 <td>
-                    <button class="btn btn-danger btn-sm vaciar" (click)="vaciarCarrito()">vaciar todo</button>
+                    <button class="btn btn-danger btn-sm vaciar" (click)="vaciarCarrito()">Vaciar todo</button>
                 </td>
                 <td class="font-weight-bold"><span></span></td>
-                <button class="bot btn btn-info comprar" (click)="comprar()">comprar</button>
+                <button class="bot btn comprar" style="background-color: #177987; color: azure;" (click)="comprar()">Comprar</button>
             </thead>
         </table>
     </div>

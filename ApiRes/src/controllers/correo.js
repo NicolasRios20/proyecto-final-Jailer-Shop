@@ -1,16 +1,13 @@
 const nodemeiler = require('nodemailer')
 
-
-
-
 const createTrans = () => {
     const transport = nodemeiler.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
-            user: "shopj2353@gmail.com",
-            pass: "tmliifkvnbkzfout"
+            user: "nicolasrioscastillo8@gmail.com",
+            pass: "gxenjtxegvuirpru"
         }
     })
 
@@ -20,8 +17,12 @@ const createTrans = () => {
 const sendMail = async(dato) => {
     const transporter = createTrans()
     const info = await transporter.sendMail({
-        from: '"Jailer Shop" <shopj2353@gmail.com>',
+        from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
         to: `${dato.correo}`,
+<<<<<<< HEAD
+        subject: `Bienvenido ha Jailer Shop ${dato.nombre}`,
+
+=======
         subject: `Bienvenido a Jailer Shop ${dato.nombre}`,
         html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
@@ -235,9 +236,23 @@ const sendMail = async(dato) => {
           </div>
          </body>
         </html>`
+>>>>>>> 5dddd9a71098d4c01f696c75da10c77cc3dba145
     })
 
     console.log("Message sent: %s", info.messageId)
 }
 
-exports.sendMail = (dato) => sendMail(dato)
+/*const sendFactura = async (correo) => {
+  const transporter = createTrans();
+  const info = await transporter.sendFactura({
+    from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
+    to: `${correo}`,
+    subject: `factura`,
+    // Agregar cualquier otra opción necesaria
+  });
+};*/
+
+
+
+exports.sendMail = (dato) => sendMail(dato);
+//exports.sendFactura = (correo) => sendFactura(correo)

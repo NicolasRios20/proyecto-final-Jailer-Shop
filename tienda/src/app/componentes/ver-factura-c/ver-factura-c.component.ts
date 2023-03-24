@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FacturaclienteService } from 'src/app/services/facturacliente.service';
 
 import { encabezadoFC, productosFC } from "../../models/facturas.interfave";
+import * as html2pdf from 'html2pdf.js';
+
 
 @Component({
   selector: 'app-ver-factura-c',
@@ -33,4 +35,10 @@ export class VerFacturaCComponent implements OnInit {
     })
   }
 
+  generatePdf() {
+    const element = document.getElementById('html-to-pdf');
+    html2pdf().from(element).save();
+  }
+
 }
+
