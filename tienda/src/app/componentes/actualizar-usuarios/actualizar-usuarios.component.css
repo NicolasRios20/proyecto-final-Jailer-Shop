@@ -93,6 +93,7 @@ Copiar esto
 .seccion-perfil-usuario .perfil-usuario-avatar img {
     width: 100%;
     position: relative;
+    object-fit: cover;
 }
 
 .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
