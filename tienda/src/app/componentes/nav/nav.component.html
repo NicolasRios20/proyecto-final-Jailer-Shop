@@ -12,7 +12,7 @@
         <a class="navbar-brand text-light" href="#">
           <span class="navbar-text" id="contenedorPerfil">
             <li class="nav-item dropdown" style="list-style: none;">
-              <img  class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="foto" src="{{imagen}}" alt="">
+              <img  class="nav-link dropdown-toggle active" style="object-fit: cover;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="foto" src="{{imagen}}" alt="">
             
             <ul class="dropdown-menu">
               <li><a  [routerLink]="['/perfil-usuario']" class="dropdown-item " aria-current="page">Perfil</a></li>
@@ -36,16 +36,15 @@
               <a class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
               </a>
-              <ul class="dropdown-menu" style="background-color: #3B0C04;">
-                <table>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight" style="">
+                
                   <tr *ngFor="let item of categoria" >
                     <td>
-                      <i class="text-light " (click)="idCategoria(item.id_categoria)">
-                        <label for="text">{{item.nombre_categoria}}</label>
-                      </i>
+                      <li class="nav-link active text-dark " (click)="idCategoria(item.id_categoria)">
+                        <a class="cambiarColor text-decoration-none pt-1 px-3" style="cursor: pointer;" for="text">{{item.nombre_categoria}}</a>
+                      </li>
                     </td>
                   </tr>
-                </table>
               </ul>
             </li>
             <li class="nav-item" *ngIf="login == false">
@@ -63,7 +62,7 @@
           
           <li class="nav-item" style="list-style: none;">
             <a class="navbar-link">
-              <img class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29" [routerLink]="['/carrito']">
+              <img class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px; cursor: pointer;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29" [routerLink]="['/carrito']">
             </a>
           </li>
           
