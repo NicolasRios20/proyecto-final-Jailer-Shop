@@ -4,13 +4,15 @@ import { ProveedorService } from '../../services/proveedor.service';
 import { Producto } from 'src/app/models/product.model';
 import { ProductosService } from 'src/app/services/productos.service';
 import { FacturapoveedorService } from 'src/app/services/facturapoveedor.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-factura-proveedor',
   templateUrl: './factura-proveedor.component.html',
   styleUrls: ['./factura-proveedor.component.css']
 })
 export class FacturaProveedorComponent implements OnInit {
-
+  a: any 
   nFactura: any = 0;
   id: any=0;
   fecha: Date = new Date();
@@ -39,20 +41,22 @@ export class FacturaProveedorComponent implements OnInit {
   datosTabla: any = [];
   remisiones: any = [];
   nmp: any = 1;
+  pro: any = []
 
   
-  constructor(private proveedorService: ProveedorService, private productosService: ProductosService,private facturaproveedor: FacturapoveedorService ) {}
+  constructor(private proveedorService: ProveedorService, private productosService: ProductosService,private facturaproveedor: FacturapoveedorService, private router: Router ) {}
 
-  ngOnInit(): void {
-    this.proveedorService.getproveedores().subscribe(data => {
-      this.proveedores = data
-      console.log(this.proveedores,"proveedores")
-      this.proveedor
-    })
-
+  ngOnInit(){
     this.proveedorService.numeroFactura().subscribe(data => {
       this.nFactura = data + 1
     })
+
+    this.proveedorService.getproveedores().subscribe(data => {
+      this.proveedores = data
+      console.log(this.proveedores,"proveedores")
+    })
+
+
 
     this.productosService.getAllproductos().subscribe(data => {
         this.productos = data;
@@ -64,17 +68,24 @@ export class FacturaProveedorComponent implements OnInit {
 
   id_proveedor(event:any){
     let n = event.target.value;
+    
+    console.log(n,'soy nico')
     if(n < 0 ){
       n=0;
       alert("La categoria no existe");
     }else{
-      let a = this.proveedores.filter(function(a) {
+      this.a = this.proveedores.filter(function(a) {
+        
         return a.nombre_proveedor == n ;
       });
-      this.proveedor = a
+      console.log(this.a, "hola")
+      this.proveedor = this.a
       this.id = this.proveedor[0].id_proveedor
       console.log(this.id, "soy yo")
+      this.ngOnInit()
     }
+
+    console.log(this.pro, 'ahora si')
     
   }
 
@@ -122,7 +133,6 @@ export class FacturaProveedorComponent implements OnInit {
   }
 
  enviar(){
-  console.log("hola")
   const encabezado = {
     id_compra: this.nFactura ,
     id_proveedor: this.id,
