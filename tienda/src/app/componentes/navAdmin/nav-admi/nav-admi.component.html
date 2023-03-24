@@ -39,13 +39,13 @@
             Administrar factura
           </a>
 
-          <ul class="dropdown-menu" style="background-color: #3B0C04;">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
             <table>
               <tr  >
                 <td>
-                  <i class="text-light "><a class="nav-link active text-light pt-1" [routerLink]="['/facturaP']">Factura del proveedor</a></i>
-                  <i class="text-light "><a class="nav-link active text-light pt-2" [routerLink]="['/historial-factura']">Historial facturas proveedor</a></i>
-                  <i class="text-light "><a class="nav-link active text-light pt-2" [routerLink]="['/facturasC']">Historial facturas cliente</a></i>
+                  <i class="nav-link active text-dark"><a class="cambiarColor text-decoration-none pt-1 px-2" [routerLink]="['/facturaP']">Factura del proveedor</a></i>
+                  <i class="nav-link active text-dark "><a class="cambiarColor text-decoration-none pt-1 px-2" [routerLink]="['/historial-factura']">Historial facturas proveedor</a></i>
+                  <i class="nav-link active text-dark "><a class="cambiarColor text-decoration-none pt-1 px-2" [routerLink]="['/facturasC']">Historial facturas cliente</a></i>
                 </td>
               </tr>
             </table>
@@ -59,14 +59,14 @@
             Categorias
           </a>
 
-          <ul class="dropdown-menu" style="background-color: #3B0C04;">
-            <table>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
               <tr *ngFor="let item of categoria" >
                 <td>
-                  <i class="nav-link active text-light "  (click)="idCategoria(item.id_categoria)"><label for="text" class="pt-1" style="cursor: pointer;">{{item.nombre_categoria}}</label></i>
+                  <li class="nav-link active text-dark "  (click)="idCategoria(item.id_categoria)">
+                    <a for="text" class="cambiarColor text-decoration-none pt-1 px-3" style="cursor: pointer;">{{item.nombre_categoria}}</a>
+                  </li>
                 </td>
               </tr>
-            </table>
           </ul>
         </li>
       </ul>

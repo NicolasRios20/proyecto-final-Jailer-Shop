@@ -28,7 +28,7 @@
 
                     <td>{{fila.columna2}}</td>
                     <td>
-                        <input type="text" [(ngModel)]="cantidad" style="visibility: hidden;">{{fila.columna3}}
+                        <input type="text" [(ngModel)]="cantidad" style="visibility: hidden; width: 5px;">{{fila.columna3}}
                     </td>
                     <div class="botones">
                         <td><button class="btn " style="background-color: antiquewhite;" value="" (click)="decrementarCantidad(i)">-</button></td>
@@ -37,22 +37,81 @@
 
                     <td>{{fila.columna4}}</td>
                     <td>
-                        <input type="text" #nf [(ngModel)]="subtotal" style="visibility:hidden">{{fila.columna5}}
+                        <input  type="text" #nf [(ngModel)]="subtotal" style="visibility:hidden; width: 5px;">{{fila.columna5}}
                     </td>
 
                     <td><button class="bot btn btn-danger" (click)="eliminarCantidad(fila.columna1)">Eliminar</button></td>
                 </tr>
 
-                <th scope="row" colspan="2">Total pagar:</th>
+                <th scope="row" colspan="2">Total pagar: <span #nf [(ngModel)]="total" > ${{total}}</span> </th>
+
                 <td>
-                    <input type="text" #nf [(ngModel)]="total" style="visibility:hidden">{{total}}
+                    <input type="text" #nf [(ngModel)]="total" style="visibility:hidden; width: 5px;">
                 </td>
                 <td>
                     <button class="btn btn-danger btn-sm vaciar" (click)="vaciarCarrito()">Vaciar todo</button>
                 </td>
                 <td class="font-weight-bold"><span></span></td>
-                <button class="bot btn comprar" style="background-color: #177987; color: azure;" (click)="comprar()">Comprar</button>
+                
+                <button class="bot btn comprar" style="background-color: #177987; color: azure;"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Comprar</button>
             </thead>
         </table>
     </div>
 </body>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form >
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre completo:</label>
+              <input type="text" class="form-control"  id="nombre" >
+            </div>
+            <div class="mb-3">
+              <label for="ubicacion" class="col-form-label">Direccion:</label>
+              <input type="text" class="form-control"  id="ubicacion">
+            </div>
+            <div class="mb-3">
+              <label for="cedula" class="col-form-label">Telefono:</label>
+              <input type="text" class="form-control"  id="cedula" >
+            </div>
+            <div class="mb-3">
+              <label for="cedula" class="col-form-label">Metodo de pago:</label>
+              
+            </div>
+            <div class="d-flex flex-row">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1"><img src="../../../assets/images/pngwing.com.png" style="width: 50%;" alt=""></label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2"><img src="../../../assets/images/pngwing.com (2).png"  style="width: 80%;"alt=""></label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+              <label class="form-check-label" for="inlineRadio3"><img src="../../../assets/images/pngwing.com (3).png" style="width: 50%;" alt=""></label>
+            </div>
+          </div>
+            
+            <div class="mb-3">
+              <label for="cedula" class="col-form-label" style="width: 30%;">Cuenta bancaria:</label>
+              <input type="text" class="form-control"  id="cedula" >
+            </div>
+            
+            
+          </form>
+          <div class="justify-content-center">
+            <button type="submit" (click)="comprar()" class="btn btn-primary ">Comprar</button>
+          </div>
+        </div>      
+      </div>
+    </div>
+  </div>
+  

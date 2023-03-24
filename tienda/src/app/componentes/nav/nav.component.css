@@ -12,3 +12,11 @@
   margin: 0 0 0 15px;
 }
 
+.cambiarColor{
+  color: black;
+}
+.cambiarColor:hover{
+  color: #2197a9;
+  text-decoration: none;
+  
+}
