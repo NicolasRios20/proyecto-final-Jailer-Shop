@@ -14,11 +14,11 @@
 
 <div class="products--grip " style="display: flex; flex-wrap:wrap; justify-content: center; margin-left: 10%; margin-right: 10%;">
     <app-producto 
-        [producto]="productos" 
-        [produc]="produc" 
-        *ngFor="let productos of productos" 
-        (addedProduct)="onAddToShoppingCart($event)"
-        (detalleProduct)="detalleProducto($event)">
+      *ngFor="let productos of productos" 
+      [producto]="productos" 
+      [produc]="produc" 
+      (addedProduct)="onAddToShoppingCart($event)"
+      (detalleProduct)="detalleProducto($event)">
     </app-producto>
 </div>
 

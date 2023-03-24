@@ -9,8 +9,11 @@
 <app-carrusel></app-carrusel>
 
 <div class="products--grip " style="display: flex; flex-wrap:wrap; justify-content: center; margin-left: 10%; margin-right: 10%;">
-    <app-producto [producto]="productos" 
+    <app-producto
+        [producto]="productos" 
+        [produc]="produc"
         *ngFor="let productos of categoria"
         (addedProduct)="onAddToShoppingCart($event)"
-    ></app-producto>
+        (detalleProduct)="detalleProducto($event)">
+    </app-producto>
 </div>

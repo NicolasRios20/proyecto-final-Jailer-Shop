@@ -4,6 +4,7 @@ import { SrviciosService } from 'src/app/services/srvicios.service';
 import { CategoriasService } from '../../services/categorias.service';
 import { Producto } from '../../models/product.model';
 import jtw_decode from "jwt-decode";
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-categoria',
@@ -16,10 +17,22 @@ export class CategoriaComponent implements OnInit {
   categoria: Producto[] = [];
   producto : any = [];
   usuario: 0 = 0;
+  //para el detalle del producto
+  produc : any = {
+    id_producto: '',
+    nombre_producto: '',
+    cantidad: 0,
+    id_categoria: 0,
+    precio_producto: 0,
+    descripcion: '',
+    imagen:'',
+  }
+
   constructor(
     private route: ActivatedRoute,
     private categoriasService: CategoriasService,
     private srviciosService: SrviciosService,
+    private productosService: ProductosService,
 
   ) { }
 
@@ -69,6 +82,14 @@ export class CategoriaComponent implements OnInit {
       }
     }
     
+  }
+
+  
+  detalleProducto(id: string){
+    this.productosService.getProducto(id)
+    .subscribe(data =>{
+      this.produc = data
+    });
   }
 
 }
