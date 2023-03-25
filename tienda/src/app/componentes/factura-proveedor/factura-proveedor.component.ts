@@ -5,6 +5,7 @@ import { Producto } from 'src/app/models/product.model';
 import { ProductosService } from 'src/app/services/productos.service';
 import { FacturapoveedorService } from 'src/app/services/facturapoveedor.service';
 import { Router } from '@angular/router';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-factura-proveedor',
@@ -147,4 +148,10 @@ export class FacturaProveedorComponent implements OnInit {
     console.log(error);
   }
   )}
+
+  generatePdf(){
+    const element = document.getElementById('html-to-pdf');
+    html2pdf().from(element).save();
+  }
+
 }
