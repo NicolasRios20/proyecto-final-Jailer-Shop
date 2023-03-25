@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 // Routes
 import productoRoutes from "./routes/products.routes";
 import usersRoutes from "./routes/usuarios.routes";
@@ -9,6 +10,8 @@ import facturaProveedor from "./routes/facturaProveedor.routes";
 import facturaCliente from "./routes/facturaCliente.routes";
 import fileUpload from "express-fileupload";
 const app = express();
+
+app.use(cors());
 
 // Settings
 app.set("port", 5000);
