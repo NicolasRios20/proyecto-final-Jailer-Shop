@@ -166,7 +166,7 @@ const getodos = async (req, res) => {
     }
 }
 
-// soy el nico 
+
 
     
 // exportar metodos
