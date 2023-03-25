@@ -99,6 +99,7 @@ export class CrearProductoComponent implements OnInit {
     this.productosService.create(formData)
     .subscribe(data => {
       this.producCreat = data
+      console.log(this.producCreat)
       this.productos.unshift(data);
       alert("Registro Exitoso");
     },error =>{

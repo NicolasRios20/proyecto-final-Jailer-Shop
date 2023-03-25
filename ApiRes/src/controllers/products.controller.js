@@ -19,9 +19,8 @@ const getById = async (req, res) => {
 const getAll = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("call listar_productos()");
-        const datos = result.shift(0);
-        res.json(datos);
+        const result = await connection.query("SELECT * FROM productos");
+        res.json(result);
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -38,15 +37,23 @@ const add = async (req, res) => {
             res.status(400).json({ message: "Bad Request. Please fill all field." });
         }else{
             const imagen_producto = req.files.file;
-            const nombre_imagen = new Date().getTime()+'.png'
+            const nombre_imagen = new Date().getTime()+'.png';
+            let datos ={
+                nombre_producto: nombre_producto,
+                cantidad:cantidad,
+                precio_producto: precio_producto,
+                id_categoria: id_categoria,
+                imagen: `http://localhost:5000/${nombre_imagen}`,
+                descripcion: descripcion,
+            };
             const connection = await getConnection();
-            const record = await connection.query(`call crear_producto('${nombre_producto}',${cantidad},${precio_producto},${id_categoria},'http://localhost:5000/${nombre_imagen}','${descripcion}')`);
+            const record = await connection.query("INSERT INTO productos SET ?", [datos] );
             if(record.protocol41 == true){
                 imagen_producto.mv('./uploads/'+nombre_imagen);
                 const connection = await getConnection();
-                const result = await connection.query(`SELECT * FROM productos WHERE imagen = 'http://localhost:5000/${nombre_imagen}'`);
-                const datos = result.shift(0);
-                res.json( datos );
+                const result = await connection.query("SELECT * FROM productos WHERE imagen = ?",datos.imagen);
+                const dato = result.shift(0);
+                res.json(dato);
             }
         }
     } catch (error) {
