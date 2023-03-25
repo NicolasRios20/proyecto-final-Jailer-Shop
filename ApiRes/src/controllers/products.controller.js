@@ -46,7 +46,7 @@ const add = async (req, res) => {
                 cantidad:cantidad,
                 precio_producto: precio_producto,
                 id_categoria: id_categoria,
-                imagen: `http://localhost:5000/${nombre_imagen}`,
+                imagen: `https://jailer-shop.onrender.com/${nombre_imagen}`,
                 descripcion: descripcion,
             };
             const connection = await getConnection();
