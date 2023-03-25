@@ -15,6 +15,7 @@ const getid_factura = async (req, res) => {
         const id_factura = data[0]["max(no_venta)"]
         res.json(id_factura);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -49,6 +50,7 @@ const guardar_factura = async (req, res) => {
             emailer.sendMail(resultado)
             res.download(resultado);
     } catch{
+        console.log(error)
         console.log(dato);
         res.status(400).json({ message: "error" });
         
@@ -124,6 +126,7 @@ async function getfacturas(req, res) {
         const data = await connection.query("SELECT venta.no_venta, cliente.nombre, venta.total_venta, venta.fecha_venta FROM venta INNER JOIN cliente ON cliente.id_cliente = venta.id_cliente");
         res.json(data);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -142,6 +145,7 @@ const getDatosFactura = async (req, res) =>{
         res.json(respuesta);
         
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }

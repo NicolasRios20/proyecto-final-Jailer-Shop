@@ -40,7 +40,7 @@ const add = async (req, res) => {
                 emailer.sendMail(dato)
                 res.json( dato );
             } catch {
-                console.log("ya existe el correo");
+                console.log(error)
                 res.status(400).json({ message: "El correo ya se encuentra registrado." });
             } 
     }
@@ -84,12 +84,14 @@ const verificaruser= async (req, res) => {
                             })
                         } 
                     } catch (error) {
+                        console.log(error)
                         res.status(400).json({ message: "No se encuentra registrado" });
                     }
                     
                 }
             })  
         } catch (error) {
+            console.log(error)
             res.status(400).json({ message: "contraseña invalida" });
             console.log("contrasena invalida")
         }  
@@ -130,6 +132,7 @@ const actualizardatos = async (req, res) => {
 
         
     } catch (error) {
+        console.log(error)
         res.send(error.message);
     }
 };
@@ -142,6 +145,7 @@ const eliminarUsuario = async (req, res) => {
         const result = await connection.query("DELETE FROM cliente WHERE id_cliente = ?", [id_cliente]);
         res.json("usuario elimidado correctamente");
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -156,6 +160,7 @@ const getodos = async (req, res) => {
         const data= await connection.query("SELECT * FROM cliente");
         res.json(data);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }

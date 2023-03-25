@@ -8,6 +8,7 @@ const getid_factura = async (req, res) => {
         const id_factura = data[0]["max(id_compra)"]
         res.json(id_factura);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -51,6 +52,7 @@ const getfacturas = async (req, res) => {
         const data= await connection.query("SELECT compra_proveedor.id_compra, proveedor.nombre_proveedor, compra_proveedor.valor, compra_proveedor.fecha FROM compra_proveedor INNER JOIN proveedor ON proveedor.id_proveedor = compra_proveedor.id_proveedor");
         res.json(data);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -69,6 +71,7 @@ const getDatosFactura = async (req, res) =>{
         res.json(respuesta);
         
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }

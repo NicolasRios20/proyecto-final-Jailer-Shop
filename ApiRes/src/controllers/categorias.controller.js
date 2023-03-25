@@ -8,6 +8,7 @@ const getAll = async (req, res) => {
         const result = await connection.query("SELECT id_categoria, nombre_categoria FROM categorias;");
         res.json(result);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -21,6 +22,7 @@ const getById = async (req, res) => {
         const result = await connection.query("SELECT id_producto, nombre_producto, cantidad, precio_producto, imagen, descripcion FROM productos INNER JOIN categorias ON productos.id_categoria = categorias.id_categoria WHERE productos.id_categoria = ?", id_categoria);
         res.json(result);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }

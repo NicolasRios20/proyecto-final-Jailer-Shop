@@ -17,6 +17,7 @@ const add = async (req, res) => {
 
         }
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -33,6 +34,7 @@ const getProveedores = async (req, res) => {
         const data = await connection.query("SELECT * FROM proveedor");
         res.json(data);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -49,6 +51,7 @@ const getProveedor = async (req, res) => {
         const data = await connection.query("SELECT * FROM proveedor WHERE id_proveedor = ?",id_proveedor);
         res.json(data);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -72,6 +75,7 @@ const actualizardatos = async (req, res) => {
         res.json(result);
 
     } catch (error) {
+        console.log(error)
         res.send(error.message);
     }
     

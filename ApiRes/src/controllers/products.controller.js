@@ -9,6 +9,7 @@ const getById = async (req, res) => {
         const datos = result.shift(0);
         res.json(datos);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -22,6 +23,7 @@ const getAll = async (req, res) => {
         const result = await connection.query("SELECT * FROM productos");
         res.json(result);
     } catch (error) {
+        console.log(error)
         console.log(error)
         res.status(500);
         res.send(error.message);
@@ -58,6 +60,7 @@ const add = async (req, res) => {
             }
         }
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -77,6 +80,7 @@ const updateById = async (req, res) => {
         const result = await connection.query("UPDATE productos SET ? WHERE id = ?", datos);
         res.json(result);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
@@ -91,6 +95,7 @@ const deleteById = async (req, res) => {
         const result = await connection.query("DELETE FROM productos WHERE nombre_producto = ?", nombre_producto);
         res.json(result);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
