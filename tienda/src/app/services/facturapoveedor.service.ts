@@ -7,9 +7,9 @@ import { FacturasP } from '../models/facturas.interfave';
   providedIn: 'root'
 })
 export class FacturapoveedorService {
-  api = '/api/facturaProveedor/';
-  urls = '/api/facturaProveedor/facturas';
-  url = '/api/facturaProveedor/facturas';
+  api = 'https://jailer-shop.onrender.com/api/facturaProveedor/';
+  urls = 'https://jailer-shop.onrender.com/api/facturaProveedor/facturas';
+  url = 'https://jailer-shop.onrender.com/api/facturaProveedor/facturas';
 
 
 

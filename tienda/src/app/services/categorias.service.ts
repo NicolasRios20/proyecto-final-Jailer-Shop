@@ -8,7 +8,7 @@ import { Producto } from '../models/product.model';
   providedIn: 'root'
 })
 export class CategoriasService {
-  url = '/api/categorias/';
+  url = 'https://jailer-shop.onrender.com/api/categorias/';
 
   constructor(
     private http: HttpClient

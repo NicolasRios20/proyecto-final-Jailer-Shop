@@ -7,8 +7,8 @@ import { Proveedor } from '../models/proveedor.interface';
 })
 export class ProveedorService {
 
-  url = '/api/proveedor/';
-  factura = '/api/facturaProveedor/';
+  url = 'https://jailer-shop.onrender.com/api/proveedor/';
+  factura = 'https://jailer-shop.onrender.com/api/facturaProveedor/';
 
   constructor(
     private http: HttpClient,

@@ -15,7 +15,7 @@ import { UrlHandlingStrategy } from '@angular/router';
 })
 export class TaskService {
   
-   api = '/api/users/';
+   api = 'https://jailer-shop.onrender.com/api/users/';
 
 
   constructor(

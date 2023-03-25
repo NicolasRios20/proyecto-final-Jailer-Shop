@@ -7,9 +7,9 @@ import { FacturasC } from '../models/facturas.interfave';
   providedIn: 'root'
 })
 export class FacturaclienteService {
-  api = '/api/facturaCliente/';
-  factura = '/api/facturaCliente/'
-  urls = '/api/facturaCliente/facturas';
+  api = 'https://jailer-shop.onrender.com/api/facturaCliente/';
+  factura = 'https://jailer-shop.onrender.com/api/facturaCliente/'
+  urls = 'https://jailer-shop.onrender.com/api/facturaCliente/facturas';
   //url = '/api/facturaProveedor/facturas';
 
 

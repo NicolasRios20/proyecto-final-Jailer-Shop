@@ -8,7 +8,7 @@ import { Producto } from '../models/product.model';
 
 export class ProductosService {
 
-  url = '/api/producto/';
+  url = 'https://jailer-shop.onrender.com/api/producto/';
 
   constructor(
     private http: HttpClient
