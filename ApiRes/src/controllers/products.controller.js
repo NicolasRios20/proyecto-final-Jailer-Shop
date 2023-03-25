@@ -21,6 +21,7 @@ const getAll = async (req, res) => {
     try {
         const connection = await getConnection();
         const result = await connection.query("SELECT * FROM productos");
+        connection.release();
         res.json(result);
     } catch (error) {
         console.log(error)
