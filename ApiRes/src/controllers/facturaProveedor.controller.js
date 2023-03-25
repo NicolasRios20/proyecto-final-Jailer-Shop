@@ -16,11 +16,9 @@ const getid_factura = async (req, res) => {
 
 const guardar_factura = async (req, res) => {
     const {id_compra, id_proveedor,valor_total,produc} = req.body;
-    console.log(req.body)
     const arr = Object.values(produc);
-    console.log(arr, "produc")
     
-    const fechaHoraActual = new Date().toISOString();
+    const fechaHoraActual = new Date().toISOString().substring(0,19);
         let dato = {
             id_compra:parseInt(id_compra),
             id_proveedor:parseInt(id_proveedor),
@@ -39,8 +37,8 @@ const guardar_factura = async (req, res) => {
             console.log(produc);
             res.json( dato );
 
-        } catch{
-            console.log(dato);
+        } catch (error){
+            console.log(error);
             res.status(400).json({ message: "error" });
             
         }

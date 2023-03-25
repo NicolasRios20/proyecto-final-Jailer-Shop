@@ -32,4 +32,5 @@ app.use("/api/proveedor", proveedorRoutes);
 app.use("/api/facturaProveedor", facturaProveedor);
 app.use("/api/facturaCliente", facturaCliente);
 
+
 export default app;

@@ -22,6 +22,7 @@ const getAll = async (req, res) => {
         const result = await connection.query("SELECT * FROM productos");
         res.json(result);
     } catch (error) {
+        console.log(error)
         res.status(500);
         res.send(error.message);
     }
