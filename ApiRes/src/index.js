@@ -12,7 +12,7 @@ const  cleanup = async() =>{
 
 }
 
-process.on('SIGINT', cleanup);
-process.on('SIGTERM', cleanup);
+//process.on('SIGINT', cleanup);
+//process.on('SIGTERM', cleanup);
 
 main();
