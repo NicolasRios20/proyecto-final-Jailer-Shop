@@ -9,7 +9,7 @@ const connection = mysql.createPool({
     password: config.password
 });
 
-  
+// prueba carlos
 
 const getConnection = async () => {
     return connection
