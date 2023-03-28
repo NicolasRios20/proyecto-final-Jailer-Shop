@@ -30,13 +30,13 @@
                   <a class="nav-link active text-light" [routerLink]="['/productos']">Inicio</a>
               </li>
             <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="#">Nosotros</a>
+              <a class="nav-link active text-light" aria-current="page" [routerLink]="['/nosotros']">Nosotros</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
               </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight" style="">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight" >
                 
                   <tr *ngFor="let item of categoria" >
                     <td>

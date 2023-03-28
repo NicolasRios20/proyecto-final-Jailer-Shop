@@ -32,6 +32,7 @@ import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 import { RecuperarContrasenaComponent } from './componentes/recuperar-contrasena/recuperar-contrasena.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 
 
 
@@ -61,6 +62,7 @@ import { RecuperarContrasenaComponent } from './componentes/recuperar-contrasena
     CategoriaComponent,
     DetalleProductoComponent,
     RecuperarContrasenaComponent,
+    NosotrosComponent,
    
   ],
   imports: [

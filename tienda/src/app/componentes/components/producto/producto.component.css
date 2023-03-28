@@ -9,3 +9,11 @@
 }
 
 
+@media (max-width:991px) {
+    #modal1, #descripcion{
+        display: flex;
+        flex-direction: column;
+        width: 200%;
+    }
+    
+}
