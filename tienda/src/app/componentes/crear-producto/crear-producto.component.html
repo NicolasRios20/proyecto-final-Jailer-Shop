@@ -38,12 +38,12 @@
                                             <input type="number" id="InputPrecio" required formControlName="cantidad">
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
-                                            <label>cantidad</label>
+                                            <label>Cantidad</label>
                                         </div>
                                         <div class="m-1">
-                                            <select id="lang" formControlName="id_categoria" (change)="idCatecoria($event)">
-                                            <option *ngFor="let item of categoria ">{{item.nombre_categoria}}</option>
-                                        </select>
+                                            <select style="background: transparent; backdrop-filter: blur(20px);" id="lang" formControlName="id_categoria" (change)="idCatecoria($event)">
+                                                <option style="background-color:rgba(241, 218, 190, 0.635);" *ngFor="let item of categoria ">{{item.nombre_categoria}}</option>
+                                            </select>
                                         </div>
                                         <!--
                                     <div class="group">
@@ -59,7 +59,7 @@
                                         <!---------------------------------------------->
 
                                         <div class="form-group">
-                                            <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+                                            <input style="background-color: transparent; backdrop-filter: blur(20px);" formControlName="file" id="file" type="file" class="form-control w-100" (change)="onFileChange($event)">
                                         </div>
 
                                         <button type="submit" class="btn text-light m-4 " style="margin-left: 35%; background-color: rgba(59,12,4);" value="crearProducto()">Subir Productos</button>
@@ -78,8 +78,8 @@
                             <img src="" alt="Image Preview" class="image-preview--image">
                             <app-img *ngIf="producCreat.imagen" [img]="producCreat.imagen"></app-img>
                         </div>
-                        <span>{{producCreat.nombre_producto}}</span>
-                        <span>{{producCreat.precio_producto}}</span>
+                        <h3 style="font-family: 'Labrada', serif;">{{producCreat.nombre_producto}}</h3>
+                        <span style=" color: brown; font-size: 24px;"><em>${{producCreat.precio_producto}}</em></span>
                         <textarea name="" id="" cols="50" style="width: 65%; height: 20%; background-color: rgba(240, 248, 255, 0.525);" readonly>{{producCreat.descripcion}}</textarea>
 
                     </div>

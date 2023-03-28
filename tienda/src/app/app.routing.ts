@@ -18,6 +18,7 @@ import { VerFacturaCComponent } from './componentes/ver-factura-c/ver-factura-c.
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 import { RecuperarContrasenaComponent } from './componentes/recuperar-contrasena/recuperar-contrasena.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 
 const appRoutes:Routes =[
 
@@ -32,6 +33,7 @@ const appRoutes:Routes =[
     {path:'categoria/:id', component:CategoriaComponent},
     {path:'detalle-producto', component:DetalleProductoComponent},
     {path: 'recuperarcontrasena',component:RecuperarContrasenaComponent},
+    {path: 'nosotros', component:NosotrosComponent},
     
     //rutas del aministrador
     {path:'proveedor', component:ProveedorComponent, data:{rol: ['1']}, canActivate: [GuardRutasGuard]},
