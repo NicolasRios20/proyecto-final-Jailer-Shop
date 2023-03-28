@@ -19,7 +19,6 @@ const sendMail = async(dato) => {
     const info = await transporter.sendMail({
         from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
         to: `${dato.correo}`,
-
         subject: `Bienvenido a Jailer Shop ${dato.nombre}`,
         html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
@@ -238,17 +237,7 @@ const sendMail = async(dato) => {
     console.log("Message sent: %s", info.messageId)
 }
 
-/*const sendFactura = async (correo) => {
-  const transporter = createTrans();
-  const info = await transporter.sendFactura({
-    from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
-    to: `${correo}`,
-    subject: `factura`,
-    // Agregar cualquier otra opción necesaria
-  });
-};*/
 
 
 
 exports.sendMail = (dato) => sendMail(dato);
-//exports.sendFactura = (correo) => sendFactura(correo)

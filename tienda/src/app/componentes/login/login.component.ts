@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { LoginI } from '../../models/login.interface';
 import jtw_decode from "jwt-decode";
+import { Router } from '@angular/router';
 
 
 
@@ -23,7 +24,10 @@ export class LoginComponent implements OnInit {
     contrasena: new FormControl('', Validators.required)
   })
 
-  constructor( private url:TaskService) { 
+  constructor( 
+    private url:TaskService,
+    private router: Router,
+    ) { 
     
    }
 
@@ -44,19 +48,14 @@ export class LoginComponent implements OnInit {
 
       this.ingreso = true;
       if (this.ingreso == true) {
-        console.log(token)
         localStorage.setItem('token',JSON.stringify(token))
-        let datoToken: any = localStorage.getItem('token');
-        let dato: any = jtw_decode(datoToken)
-        console.log(dato.id)
-        this.exitoso();
+        this.router.navigate([''])
       }  
     },error=>{
       this.fallido();
     });
   };
-
-
+/*
   exitoso(){
     Swal.fire({
       title: 'INGRESO EXITOSO',
@@ -65,7 +64,7 @@ export class LoginComponent implements OnInit {
       confirmButtonText: '<a href="http://localhost:4200/productos" style="text-color: white;" t>OK</a>'
     })
   }
-
+*/
   fallido(){
     Swal.fire({
       icon: 'error',

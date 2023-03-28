@@ -28,6 +28,7 @@ const appRoutes:Routes =[
     {path:'productos', component:ProductosComponent},
     {path:'carrito', component:CarritoComponent},
     {path:'nav', component:NavAdmiComponent},
+    
     {path:'facturacliente',component:CarritoComponent},
     {path:'categoria/:id', component:CategoriaComponent},
     {path:'detalle-producto', component:DetalleProductoComponent},
