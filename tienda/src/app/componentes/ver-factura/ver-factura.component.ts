@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FacturapoveedorService } from 'src/app/services/facturapoveedor.service';
-
+import * as html2pdf from 'html2pdf.js';
 import { encabezadoFP, productosFP } from "../../models/facturas.interfave";
 
 @Component({
@@ -29,6 +29,11 @@ export class VerFacturaComponent implements OnInit {
       this.productos = data[1]  
       console.log(this.proveedor) 
     })
+  }
+
+    generatePdf() {
+    const element = document.getElementById('html-to-pdf');
+    html2pdf().from(element).save();
   }
 
 }

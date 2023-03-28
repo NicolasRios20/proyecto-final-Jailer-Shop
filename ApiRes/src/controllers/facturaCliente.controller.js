@@ -5,8 +5,6 @@ const PDFDocument = require("pdfkit-table");
 const emailer = require('../controllers/correoFactura')
   
 
-
-
 const getid_factura = async (req, res) => {
     try {
         const {} = req.params;
@@ -19,6 +17,7 @@ const getid_factura = async (req, res) => {
         res.send(error.message);
     }
 }
+
 
 const guardar_factura = async (req, res) => {
     const {id_cliente, no_venta, valor_total, produc} = req.body
@@ -47,13 +46,15 @@ const guardar_factura = async (req, res) => {
             const resultado = await datosFacturapdf(no_venta);
             console.log(resultado, 'soy el sapo')
             emailer.sendMail(resultado)
-            res.download(resultado);
+            //res.download(resultado);
+            res.status(200).json({ message: "exitoso" });
     } catch{
         console.log(dato);
         res.status(400).json({ message: "error" });
         
     }
 }
+
 
 const datosFacturapdf = async (no_venta) => {
     
@@ -68,6 +69,7 @@ const datosFacturapdf = async (no_venta) => {
     resultado.push(fileName,correo)
     return resultado;
 }
+
 
 const pdf = async (remi, encabezado) => {
     const fs = require('fs');
@@ -113,10 +115,6 @@ const pdf = async (remi, encabezado) => {
 }
 
 
-
-
-   
-
 async function getfacturas(req, res) {
     try {
         const { } = req.params;
@@ -128,6 +126,7 @@ async function getfacturas(req, res) {
         res.send(error.message);
     }
 }
+
 
 const getDatosFactura = async (req, res) =>{
     try {

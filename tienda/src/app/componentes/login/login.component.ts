@@ -74,7 +74,6 @@ export class LoginComponent implements OnInit {
   }
   
   mostrar(){
-    
     let mostrar: any = document.getElementById('password');
     console.log (mostrar);
     if(mostrar.type == 'password'){
@@ -86,7 +85,4 @@ export class LoginComponent implements OnInit {
     }
 
   }
-
-
-
 }

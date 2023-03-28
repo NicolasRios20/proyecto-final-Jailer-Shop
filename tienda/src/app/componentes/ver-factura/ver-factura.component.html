@@ -1,13 +1,13 @@
 <app-nav-admi></app-nav-admi>
 <div class="card">
-    <div class="card-body">
+    <div class="card-body" id="html-to-pdf">
         <div class="container mb-5 mt-3">
             <div class="row d-flex align-items-baseline">
                 <div class="col-xl-9">
                     <p style="color: #7e8d9f;font-size: 20px;">Factura >> <strong>ID: #{{proveedor[0].id_compra}}</strong></p>
                 </div>
                 <div class="col-xl-3 float-end">
-                    <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+                    <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark" (click)="generatePdf()"><i
               class="far fa-file-pdf text-danger"></i> Export</a>
                 </div>
                 <hr>

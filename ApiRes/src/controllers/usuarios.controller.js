@@ -2,6 +2,18 @@ import { getConnection } from "../database/database";
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken')
 const emailer = require('../controllers/correo')
+const emailers = require('../controllers/correoRecuperarC')
+const crypto = require('crypto');
+
+function generarCodigo(codigoAnterior) {
+    // Generar 3 bytes aleatorios
+    const buffer = crypto.randomBytes(3);
+  
+    // Codificar los bytes en base64 y tomar los primeros 4 caracteres
+    const codigo = buffer.toString('base64').slice(0, 4);
+  
+    return codigo;
+  }
 
 //  consultar todos los usuarios
 const getAll = async (req, res) => {
@@ -161,7 +173,75 @@ const getodos = async (req, res) => {
     }
 }
 
-    
+const recuperarc = async (req, res) => {
+    const { correo } = req.body;
+  
+    if (!correo) {
+      res.status(400).json({ message: "Ingrese su correo" });
+    } else {
+      try {
+        const connection = await getConnection(); 
+        connection.query('SELECT id_cliente FROM cliente WHERE correo = ?', [correo], (err, results) => {
+          if (err) {
+            console.log(err);
+            res.status(400).json({ message: "El correo no se encuentra registrado" });
+          } else {
+            if (results.length > 0) {
+                
+                const codigoAnterior = '';
+                const token = generarCodigo(codigoAnterior);
+                console.log(typeof(token) , 'soy el codigo')
+              let datos = {
+                id_cliente: results[0].id_cliente,
+                correo: correo,
+                token: token
+              };
+                try {
+                    connection.query("INSERT INTO recuperarc SET ?", [datos] );
+                    emailers.sendMail(datos)
+                    res.send(token)
+                } catch (error) {
+                    res.status(400).json({ message: "no se guardo el token" });
+                }
+            } else {
+              res.status(400).json({ message: "El correo no se encuentra registrado" });
+            }
+          }
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
+      }
+    }
+  }
+   
+const cambiar = async (req, res) => {
+    try {
+        const { correo, token, contrasena } = req.body;
+        const connection = await getConnection();
+        const data = await connection.query("SELECT * FROM recuperarc WHERE correo = ? ", correo);
+        try {
+        for (let i = 0; i < data.length; i++) {
+            const correos = data[i];
+            const codigo = correos['token']
+            const email = correos['correo']
+            if (email == correo && token == codigo ) {
+                let contrai = await bcrypt.hash(contrasena, 8);
+                await connection.query("UPDATE cliente SET contrasena = ? WHERE correo = ?;", [contrai, correo]);
+                await connection.query("DELETE FROM recuperarc WHERE correo = ?;", [correo]);
+                res.json('hola');
+            }
+        }
+        } catch (error) {
+        res.status(400).json("no se encuentra el codigo");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error.message);
+    }
+};
+
+  
 // exportar metodos
 export const methods = {
     getAll,
@@ -169,7 +249,9 @@ export const methods = {
     verificaruser,
     getodos,
     actualizardatos,
-    eliminarUsuario
+    eliminarUsuario,
+    recuperarc,
+    cambiar,
 };
 
 

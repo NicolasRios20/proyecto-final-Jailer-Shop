@@ -15,21 +15,14 @@ const createTrans = () => {
 };
 
 
-const sendMail = async(resultado) => {
-    let fileName = resultado[0]
-    let correo = resultado[1]
+const sendMail = async(datos) => {
+    const resetUrl = datos.token
     const transporter = createTrans()
     const info = await transporter.sendMail({
         from: '"Jailer Shop" <nicolasrioscastillo8@gmail.com>',
-        to: `${correo}`,
-        subject: `factura`,
-        attachments: [
-            {
-              filename: `${fileName}`,
-              path: `./uploads/${fileName}` // Path to factura file
-            }
-          ]
-
+        to: `${datos.correo}`,
+        subject: `ingresa al link para restablecer la contrasena`,
+        text: resetUrl 
     })
 
     console.log("Message sent: %s", info.messageId)
@@ -38,4 +31,4 @@ const sendMail = async(resultado) => {
 
 
 
-exports.sendMail = (resultado) => sendMail(resultado);
+exports.sendMail = (datos) => sendMail(datos);
