@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Producto } from 'src/app/models/product.model';
 import { ProductosService } from '../../../services/productos.service';
+import { SrviciosService } from 'src/app/services/srvicios.service';
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
@@ -9,7 +10,8 @@ import { ProductosService } from '../../../services/productos.service';
 })
 
 export class ProductoComponent {
-  
+
+
   @Output() addedProduct = new EventEmitter<Producto>();
   @Output() detalleProduct = new EventEmitter<string>();
 
@@ -36,7 +38,11 @@ export class ProductoComponent {
   }
 
   constructor(
-) {}
+    private srviciosService: SrviciosService,
+) {
+  let contador =  JSON.parse(localStorage.getItem("productos") || "[]" );
+  this.srviciosService.contador.emit(contador.length);
+}
 
   onAddTocart(){
     this.addedProduct.emit(this.producto);
@@ -44,6 +50,11 @@ export class ProductoComponent {
 
   addModalProducto(){
     this.detalleProduct.emit(this.producto.id_producto)
+  }
+
+  contadorProductosCarrito(){
+    let contador =  JSON.parse(localStorage.getItem("productos") || "[]" );
+    this.srviciosService.contador.emit(contador.length);
   }
 
 }
