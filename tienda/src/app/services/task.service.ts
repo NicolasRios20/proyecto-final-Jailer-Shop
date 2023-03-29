@@ -26,8 +26,6 @@ export class TaskService {
     return this.http.post<LoginI>(`${this.api}email/`,form);
   }
 
-
-
   getAllTasks(){
     return this.http.get(this.api);
   }

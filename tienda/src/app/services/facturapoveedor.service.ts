@@ -11,8 +11,6 @@ export class FacturapoveedorService {
   urls = '/api/facturaProveedor/facturas';
   url = '/api/facturaProveedor/facturas';
 
-
-
   constructor(
     private http: HttpClient
   ) { }

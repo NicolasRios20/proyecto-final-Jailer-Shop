@@ -4,6 +4,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriasService } from '../../services/categorias.service';
 import { Categoria } from '../../models/categorias.interface';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -100,13 +101,33 @@ export class CrearProductoComponent implements OnInit {
     .subscribe(data => {
       this.producCreat = data
       this.productos.unshift(data);
-      alert("Registro Exitoso");
+      this.exitosoCreado();
     },error =>{
-      
-      alert("Ocurrio un Error por favor Verificar los Campos");
+      this.errorCampos();
     });
     
 
+  }
+
+  //alertas de confirmacion
+  exitosoCreado(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Producto Creado',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  errorCampos(){
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Por Favor Verificar los Datos',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
