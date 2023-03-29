@@ -5,6 +5,7 @@ import { Producto } from 'src/app/models/product.model';
 import { ProductosService } from 'src/app/services/productos.service';
 import { FacturapoveedorService } from 'src/app/services/facturapoveedor.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-factura-proveedor',
@@ -143,8 +144,20 @@ export class FacturaProveedorComponent implements OnInit {
   this.facturaproveedor.guardarFactura(encabezado)
   .subscribe((data)=>{
     console.log(data);
+    this.agregar()
+    
   },error =>{
     console.log(error);
   }
   )}
+
+  agregar(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Factura guardada',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 }
