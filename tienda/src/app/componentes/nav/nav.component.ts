@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CategoriasService } from '../../services/categorias.service';
 import { Categoria } from '../../models/categorias.interface';
 import jtw_decode from "jwt-decode";
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { datosUsuario } from '../../models/task';
-import jwtDecode from 'jwt-decode';
+import { SrviciosService } from 'src/app/services/srvicios.service';
 
 
 @Component({
@@ -20,16 +20,17 @@ export class NavComponent implements OnInit {
   imagen = "https://i.ibb.co/94D9z5P/logo.jpg";
   login!: boolean;
   id:any;
+  contador:any
 
   constructor(
     private categoriasService: CategoriasService,
     private taskService: TaskService,
     private router: Router,
-  ) { 
-    
-  }
+    private srviciosService: SrviciosService,
+  ) { }
 
   ngOnInit(): void {
+    this.cantidad()
     this.categoriasService.getAll()
     .subscribe(data => {
         this.categoria = data; 
@@ -71,6 +72,16 @@ export class NavComponent implements OnInit {
           this.imagen = data[0].foto;
         }
     })
+
+  }
+
+  cantidad(){
+
+    console.log( this.contador)
+    this.srviciosService.contador
+    .subscribe(data =>{
+      this.contador = data;
+    });
 
   }
 

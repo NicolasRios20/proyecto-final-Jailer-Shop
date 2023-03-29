@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/models/product.model';
 
 @Injectable({
@@ -7,9 +7,10 @@ import { Producto } from 'src/app/models/product.model';
 
 export class SrviciosService {
 
+  @Output() contador = new EventEmitter();
+  private myShoppingCart: Producto[] = [];
   productos : any ;
   
-  private myShoppingCart: Producto[] = [];
  
   constructor() { }
 

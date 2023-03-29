@@ -11,17 +11,14 @@
         <p class="card-text" style="height:50px; width:100%; overflow: hidden; text-overflow:ellipsis;">{{producto.descripcion}}</p>
         <div class="row justify-content-center align-items-center justify-content-evenly ">
           <button class="btn btn-outline-dark" style="width: 30%;" (click)="addModalProducto()" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Detalle</button>
-          <button (click)="onAddTocart()" href="#" class="btn  " style="background: #177987; color: aliceblue; width: 50%;">Agregar al carrito</button>
+          <button (click)="onAddTocart()" (click)="contadorProductosCarrito()" href="#" class="btn  " style="background: #177987; color: aliceblue; width: 50%;">Agregar al carrito</button>
         </div>
     </div>
 </div>
 </div>
 
 
-
-
 <!--Modal del detalle del producto-->
-
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
       <div class="modal-content">
