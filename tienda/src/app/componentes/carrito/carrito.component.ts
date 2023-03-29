@@ -139,10 +139,23 @@ export class CarritoComponent implements OnInit {
     this.facturacliente.guardarFactura(encabezado)
     .subscribe((data)=>{
       console.log(data);
+      this.compraExitosa()
+      setTimeout(this.vaciarCarrito, 1501)
     },error =>{
       console.log(error);
     }
+
     )}
+
+    compraExitosa(){
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Gracias por su compra',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
 
 
   agotado(){
