@@ -54,3 +54,10 @@ td {
     height: 50px;
     object-fit: cover;
 }
+
+main{
+    min-height: 78vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
