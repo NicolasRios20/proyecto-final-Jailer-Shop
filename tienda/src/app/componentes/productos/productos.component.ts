@@ -70,6 +70,7 @@ export class ProductosComponent implements OnInit {
       } else {
         productosGuardados.push(this.producto);
         localStorage.setItem('productos', JSON.stringify(productosGuardados));
+        this.agregar()
 
       }
     }
@@ -89,6 +90,15 @@ export class ProductosComponent implements OnInit {
       position: 'center',
       icon: 'info',
       title: 'El producto ya se ecuentra en el carrito de compras',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  agregar(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se agrego al carrito',
       showConfirmButton: false,
       timer: 1500
     })
