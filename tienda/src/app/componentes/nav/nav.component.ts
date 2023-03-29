@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   imagen = "https://i.ibb.co/94D9z5P/logo.jpg";
   login!: boolean;
   id:any;
-  contador:any
+  contador:any 
 
   constructor(
     private categoriasService: CategoriasService,
@@ -76,13 +76,12 @@ export class NavComponent implements OnInit {
   }
 
   cantidad(){
-
     console.log( this.contador)
     this.srviciosService.contador
     .subscribe(data =>{
       this.contador = data;
+      console.log(this.contador, "soy la cantida")
     });
-
   }
 
 }

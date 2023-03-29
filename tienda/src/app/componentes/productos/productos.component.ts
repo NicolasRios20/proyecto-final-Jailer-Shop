@@ -3,6 +3,7 @@ import { Producto } from 'src/app/models/product.model';
 import jtw_decode from "jwt-decode";
 import { ProductosService } from 'src/app/services/productos.service';
 import { SrviciosService } from 'src/app/services/srvicios.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -65,10 +66,11 @@ export class ProductosComponent implements OnInit {
       const productoExistente = productosGuardados.find((producto: any) => producto.id_producto === this.producto.id_producto);
       if (productoExistente) {
         console.log("El producto ya existe en el carrito");
+        this.yaExiste()
       } else {
         productosGuardados.push(this.producto);
         localStorage.setItem('productos', JSON.stringify(productosGuardados));
-        console.log("Se agregó el producto al carrito");
+
       }
     }
     
@@ -79,6 +81,16 @@ export class ProductosComponent implements OnInit {
     .subscribe(data =>{
       this.produc = data
       console.log(this.produc.nombre_producto);
+    })
+  }
+
+  yaExiste(){
+    Swal.fire({
+      position: 'center',
+      icon: 'info',
+      title: 'El producto ya se ecuentra en el carrito de compras',
+      showConfirmButton: false,
+      timer: 1500
     })
   }
 }

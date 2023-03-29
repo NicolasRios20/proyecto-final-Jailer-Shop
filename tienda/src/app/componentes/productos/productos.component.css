@@ -1,0 +1,12 @@
+#titulo h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 5px;
+    background: #177987;
+    margin: 10px auto 10px;
+}
+
+#titulo h1 span {
+    color: #177987;
+}

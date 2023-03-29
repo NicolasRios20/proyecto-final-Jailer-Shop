@@ -25,21 +25,23 @@
         <div class="modal-body">
           
             <div class="container" >
+              <div class="d-flex flex-direction-row">
+                <h2 class="w-100"></h2>
+                <button type="button" id="boton" class="btn btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
               
-                  <div class="row" id="modal1">
-                    <button type="button" id="boton" class="btn-close" style="margin-left: 98%" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="shadow p-3  bg-body-tertiary rounded border bg-white w-50 h-50">
+                  <div class="row" id="modal1">  
+                    <div class="shadow p-2  bg-body-tertiary rounded border bg-white w-50 h-50">
                       <!--<div style="width: 50%;" class="mt-4">-->
-                        <img  style="width: 100%; height: auto;" class="p-4 object-fit-cover " src="{{produc.imagen}}">
+                        <img  style="width: 100%; height: auto;" class="p-4 object-fit-cover " src="{{produc.imagen}}" >
                     </div>
 
                     <div style="width: 50%;" class="mt-4" id="descripcion">
 
-                        <h6>Categoria/ </h6>
-                        <h2 class="modal-title" style="font-family: 'Labrada', serif;">{{produc.nombre_producto}}</h2>
-                        <h3 class="mt-3"> <span style="color: rgb(161, 2, 2);">${{produc.precio_producto}}</span></h3>
-                        <p class="pt-2  fst-italic" style="color: rgb(88, 126, 128);">Descripción producto</p>
-                        <p>{{produc.descripcion}}</p>                                             
+                        <h2 class="modal-title ms-3" style="font-family: 'Labrada', serif;">{{produc.nombre_producto}}</h2>
+                        <h3 class="mt-3 ms-3"> <span style="color: rgb(161, 2, 2);">${{produc.precio_producto}}</span></h3>
+                        <p class="pt-2 ms-3  fst-italic" style="color: rgb(88, 126, 128);">Descripción producto</p>
+                        <p class="ms-3" style="color: #888;">{{produc.descripcion}}</p>                                             
                         <div class="d-flex justify-content-center">
                             <button (click)="onAddTocart()" type="button" class="btn text-white " style="background: #177987;">Agregar al carrito</button>
                         </div>

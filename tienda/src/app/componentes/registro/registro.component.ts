@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { FormGroup, FormControl } from '@angular/forms'
 import Swal from "sweetalert2";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class RegistroComponent {
   
   
   constructor(
-    private thaskService: TaskService
+    private thaskService: TaskService, private router: Router
   ){}
   
   
@@ -39,7 +40,7 @@ export class RegistroComponent {
     };
     this.thaskService.crearUsuario(task)
     .subscribe((nuevoTask)=>{
-      this.exitoso();
+      this.router.navigate(["/login"])
     },error =>{
       this.fallido();
     }

@@ -59,12 +59,20 @@
               <button class="btn btn-outline-light border-end-1 border rounded-pill ms-2" type="submit"><i class=" fa fa-search"></i></button>
             </form>
           
-          <li class="nav-item" style="list-style: none;">
-            <a class="navbar-link">
-              <span>{{contador}}</span>
+          <li class="nav-item" style="list-style: none;"*ngIf="contador == undefined; else compra">
+            <button type="button" class="btn  position-relative" *ngIf="contador == undefined; else compra">
               <img  class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px; cursor: pointer;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29" [routerLink]="['/carrito']">
-            </a>
+            </button>
           </li>
+          <ng-template #compra>
+            <button type="button" class="btn  position-relative" >
+              <img  class=" fa fa-shopping-cart ms-2"  style="margin-right: 15px; cursor: pointer;" src="https://i.ibb.co/0h8GYfH/shopping-cart.png" href="#" width="30" height="29" [routerLink]="['/carrito']">
+              <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill bg-danger" >
+                {{contador}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
+          </ng-template>
           
         </div>
         
