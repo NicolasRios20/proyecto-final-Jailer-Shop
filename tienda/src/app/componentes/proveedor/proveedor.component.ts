@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProveedorService } from '../../services/proveedor.service';
 import { Proveedor } from '../../models/proveedor.interface';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,24 +42,23 @@ export class ProveedorComponent implements OnInit {
   });
 
   crearProveedor(form: any){
-
     if(this.formulario.valid){
       this.proveedor = form;
       this.proveedorService.createProveedor(form)
       .subscribe(data => {
-        alert("Registro Exitoso");
-        this.ngOnInit()
+        this.ngOnInit();
+        this.exitosoCreado();
         this.formulario.reset();
       },error =>{
         if(error.status == 400){
-          alert("Verificar Campos")
+          this.verificarCampos();
         }else if(error.status == 500){
-          alert("El Usuario ya Existe");
+          this.cedulaRepetida();
         }
       });
-    }else(
-      alert("la cedula deve tener de 8 a 10 digitos")
-    )
+    }else{
+      this.verificarCampos()
+    }
 
   }
 
@@ -102,10 +102,10 @@ export class ProveedorComponent implements OnInit {
         formData.append('cuenta_bancaria', this.formularioActualizacion.get('cuenta_bancaria')?.value || '');
         
         this.proveedorService.actualizarProveedor(id, formData).subscribe(dato=>{
-          alert("registro exitoso")
+          this.ActualizadoExitoso()
           this.cerrar()
         },error =>{
-          alert("Ocurrio un Error por favor Verificar los Campos");
+          this.verificarCampos();
         })
     }else{ 
       alert("verificar campos")
@@ -116,6 +116,47 @@ export class ProveedorComponent implements OnInit {
   cerrar() {
     close();
     this.ngOnInit()
+  }
+
+  //Alertas de Confirmacion
+  exitosoCreado(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Proveedor Creado',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  ActualizadoExitoso(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'proveedor Actualizado',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  cedulaRepetida(){
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'El Usuario ya Existe',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  verificarCampos(){
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Por Favor Verificar Campos',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 
