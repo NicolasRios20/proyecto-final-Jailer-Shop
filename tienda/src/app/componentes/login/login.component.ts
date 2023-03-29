@@ -55,16 +55,7 @@ export class LoginComponent implements OnInit {
       this.fallido();
     });
   };
-/*
-  exitoso(){
-    Swal.fire({
-      title: 'INGRESO EXITOSO',
-      icon: 'success',
-      showCloseButton: true,
-      confirmButtonText: '<a href="http://localhost:4200/productos" style="text-color: white;" t>OK</a>'
-    })
-  }
-*/
+
   fallido(){
     Swal.fire({
       icon: 'error',

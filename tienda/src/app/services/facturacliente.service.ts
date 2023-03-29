@@ -10,9 +10,6 @@ export class FacturaclienteService {
   api = '/api/facturaCliente/';
   factura = '/api/facturaCliente/'
   urls = '/api/facturaCliente/facturas';
-  //url = '/api/facturaProveedor/facturas';
-
-
 
   constructor(
     private http: HttpClient

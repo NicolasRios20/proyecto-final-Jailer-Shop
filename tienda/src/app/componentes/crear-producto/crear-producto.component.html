@@ -45,18 +45,10 @@
                                                 <option style="background-color:rgba(241, 218, 190, 0.635);" *ngFor="let item of categoria ">{{item.nombre_categoria}}</option>
                                             </select>
                                         </div>
-                                        <!--
-                                    <div class="group">
-                                        <input type="number" id="InputPrecio" required formControlName="id_categoria">
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>categoria</label>
-                                    </div>
-                                    -->
+
                                         <div class="mb-3">
                                             <textarea class="form-control"  placeholder="Descripcion del producto..." style=" background-color: rgba(240, 248, 255, 0.525);" rows="3" formControlName="descripcion"></textarea>
                                         </div>
-                                        <!---------------------------------------------->
 
                                         <div class="form-group">
                                             <input style="background-color: transparent; backdrop-filter: blur(20px);" formControlName="file" id="file" type="file" class="form-control w-100" (change)="onFileChange($event)">

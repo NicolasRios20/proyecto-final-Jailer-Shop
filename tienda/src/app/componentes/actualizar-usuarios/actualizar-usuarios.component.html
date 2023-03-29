@@ -1,8 +1,11 @@
 <app-nav></app-nav>
+
 <section class="seccion-perfil-usuario">
 
     <div class="perfil-usuario-header">
+
         <div class="perfil-usuario-portada">
+
             <div class="perfil-usuario-avatar">
                 <img class="img-responsive img-circle" src="{{this.user[0].foto}}" alt="">
             </div>
@@ -11,14 +14,13 @@
 
         </div>
     </div>
+
     <div class="perfil-usuario-body">
+
         <div class="perfil-usuario-bio">
-
-
             <h1>{{user[0].nombre}}</h1>
-
-
         </div>
+
         <div class="perfil-usuario-footer" style="margin: 0 0 50px 0;">
             <form [formGroup]="formulario" (ngSubmit)="actualizarUser(formulario.value)">
 
@@ -45,15 +47,13 @@
                         <span>Subir imagen</span>
                     </label>
 
-
-
                     <button type="submit" class="btn  btn-outline-light mt-3  " style="background: #177987; width: 30%; height: 35px;" id="btnSend" value="actualizarUser()">Guardar</button>
 
                 </div>
 
             </form>
+
         </div>
+        
     </div>
 </section>
-
-<!--====  End of html  ====-->
