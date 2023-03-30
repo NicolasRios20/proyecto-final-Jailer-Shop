@@ -60,6 +60,7 @@ export class ProductosComponent implements OnInit {
     if (!localStorage.getItem('productos')) {
       localStorage.setItem('productos',JSON.stringify([]))
       this.srviciosService.addProductos(this.producto)
+      this.agregar()
     }else{
       produc = localStorage.getItem('productos')
       const productosGuardados = JSON.parse(produc);
