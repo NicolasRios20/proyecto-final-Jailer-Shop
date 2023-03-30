@@ -145,7 +145,7 @@ export class FacturaProveedorComponent implements OnInit {
   .subscribe((data)=>{
     console.log(data);
     this.agregar()
-    
+    this.router.navigate(['/historial-factura'])
   },error =>{
     console.log(error);
   }
